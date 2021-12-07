@@ -24,10 +24,10 @@ function turnRollDice() {
     function rollDiceFirstTime() {
     const input = prompt("To roll dice press ok");
         if (input === "") {
-            fiveDice.diceOne = 1;
+            fiveDice.diceOne = 6;
             fiveDice.diceTwo = 2;
             fiveDice.diceThree = 3;
-            fiveDice.diceFour = 3;
+            fiveDice.diceFour = 4;
             fiveDice.diceFive = 5;
         }
     }
@@ -54,10 +54,14 @@ function turnRollDice() {
 }
 
 /* summation of dice roll*/
+let diceSummation = 0;
 const fiveDiceArray = Object.values(fiveDice);
 function sumOfDice(sum) {
     return sum = fiveDiceArray.reduce((previous, current) => previous + current);
 }
+
+diceSummation = sumOfDice(diceSummation);
+
 
 /* uppersection score test*/
 const upperSection = {
@@ -71,22 +75,22 @@ const upperSection = {
 
 function upperSectionTest() {
     if ((fiveDiceArray.find(element => element === 1)) === 1) {
-        upperSection.aces = sumOfDice(upperSection.aces);
+        upperSection.aces = diceSummation;
     }
     if ((fiveDiceArray.find(element => element === 2)) === 2) {
-        upperSection.twos = sumOfDice(upperSection.twos);
+        upperSection.twos = diceSummation;
     }
     if ((fiveDiceArray.find(element => element === 3)) === 3) {
-        upperSection.threes = sumOfDice(upperSection.threes);
+        upperSection.threes = diceSummation;
     }
     if ((fiveDiceArray.find(element => element === 4)) === 4) {
-        upperSection.fours = sumOfDice(upperSection.fours);
+        upperSection.fours = diceSummation;
     }
     if ((fiveDiceArray.find(element => element === 5)) === 5) {
-        upperSection.fives = sumOfDice(upperSection.fives);
+        upperSection.fives = diceSummation;
     }
     if ((fiveDiceArray.find(element => element === 6)) === 6) {
-        upperSection.sixes = sumOfDice(upperSection.sixes);
+        upperSection.sixes = diceSummation;
     }
     return upperSection;
 }
@@ -117,26 +121,26 @@ function lowerSectionTest() {
     function diceTwoOrMoreOfAKind(number) {
     let diceSameNumber = fiveDiceArray.filter(element => element === number);
         if (diceSameNumber.length === 3) {
+            lowerSection.pair = diceSummation;
             dicePairArray.push(diceSameNumber);
-            lowerSection.pair = sumOfDice(lowerSection.pair);
-            fullHouseThreeOfAKindTest = true;
-            return lowerSection.threeOfAKind = sumOfDice(lowerSection.threeOfAKind);
+            lowerSection.threeOfAKind = diceSummation;
+            return fullHouseThreeOfAKindTest = true;
 
         } else if (diceSameNumber.length === 4) {
-            lowerSection.pair = sumOfDice(lowerSection.pair);
-            lowerSection.twoPairs = sumOfDice(lowerSection.twoPairs);
-            lowerSection.threeOfAKind = sumOfDice(lowerSection.threeOfAKind);
-            return lowerSection.fourOfAKind = sumOfDice(lowerSection.fourOfAKind);
+            lowerSection.pair = diceSummation;
+            lowerSection.twoPairs = diceSummation;
+            lowerSection.threeOfAKind = diceSummation;
+            return lowerSection.fourOfAKind = diceSummation;
 
         } else if (diceSameNumber.length === 5) {
-            lowerSection.pair = sumOfDice(lowerSection.pair);
-            lowerSection.twoPairs = sumOfDice(lowerSection.twoPairs);
-            lowerSection.threeOfAKind = sumOfDice(lowerSection.threeOfAKind);
-            lowerSection.fourOfAKind = sumOfDice(lowerSection.fourOfAKind);
-            return lowerSection.yahtzee = sumOfDice(lowerSection.yahtzee);
+            lowerSection.pair = diceSummation;
+            lowerSection.twoPairs = diceSummation;
+            lowerSection.threeOfAKind = diceSummation;
+            lowerSection.fourOfAKind = diceSummation;
+            return lowerSection.yahtzee = diceSummation;
 
         } else if (diceSameNumber.length === 2) {
-            lowerSection.pair = sumOfDice(lowerSection.pair);
+            lowerSection.pair = diceSummation;
             dicePairArray.push(diceSameNumber);
             return fullHouseTwoOfAKindTest = true;
         } else {
@@ -145,10 +149,10 @@ function lowerSectionTest() {
     }
 
     if (dicePairArray.length === 2) {
-        lowerSection.twoPairs = sumOfDice(lowerSection.twoPairs);
+        lowerSection.twoPairs = diceSummation;
     }
     if (fullHouseThreeOfAKindTest && fullHouseTwoOfAKindTest) {
-        lowerSection.fullHouse = sumOfDice(lowerSection.fullHouse);
+        lowerSection.fullHouse = diceSummation;
     }
 
     if (StraightTest === 5) {
@@ -156,15 +160,15 @@ function lowerSectionTest() {
         const lowStraightTestTwo = fiveDiceArray.find(element => element === 6 || element === 1);
         const lowStraightTestThree = fiveDiceArray.find(element => element <= 2);
             if(lowStraightTestOne !== 5 && lowStraightTestOne !== 6) {
-            lowerSection.lowStraight = sumOfDice(lowerSection.lowStraight);
+            lowerSection.lowStraight = diceSummation;
             } else if (lowStraightTestTwo !== 6 && lowStraightTestTwo !== 1) {
-            lowerSection.lowStraight = sumOfDice(lowerSection.lowStraight);
+            lowerSection.lowStraight = diceSummation;
             } else if (lowStraightTestThree !== 2 && lowStraightTestThree !== 1) {
-            lowerSection.lowStraight = sumOfDice(lowerSection.lowStraight);
+            lowerSection.lowStraight = diceSummation;
             }
     } else if (StraightTest === 6) {
-        lowerSection.lowStraight = sumOfDice(lowerSection.lowStraight);
-        lowerSection.highStraight = sumOfDice(lowerSection.highStraight);
+        lowerSection.lowStraight = diceSummation;
+        lowerSection.highStraight = diceSummation;
     }
     return lowerSection;
 }
