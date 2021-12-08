@@ -1,9 +1,9 @@
 const fiveDice = {
-    diceOne: 0,
-    diceTwo: 0,
-    diceThree: 0,
-    diceFour: 0,
-    diceFive: 0,
+    dieOne: 0,
+    dieTwo: 0,
+    dieThree: 0,
+    dieFour: 0,
+    dieFive: 0,
 };
 
 const upperSection = {

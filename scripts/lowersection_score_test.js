@@ -21,25 +21,26 @@ function lowerSectionTest() {
             lowerSection.pair = diceSummation;
             dicePairArray.push(diceSameNumber);
             lowerSection.threeOfAKind = diceSummation;
-            return fullHouseThreeOfAKindTest = true;
+            fullHouseThreeOfAKindTest = true;
 
         } else if (diceSameNumber.length === 4) {
             lowerSection.pair = diceSummation;
             lowerSection.twoPairs = diceSummation;
             lowerSection.threeOfAKind = diceSummation;
-            return lowerSection.fourOfAKind = diceSummation;
+            lowerSection.fourOfAKind = diceSummation;
 
         } else if (diceSameNumber.length === 5) {
             lowerSection.pair = diceSummation;
             lowerSection.twoPairs = diceSummation;
             lowerSection.threeOfAKind = diceSummation;
             lowerSection.fourOfAKind = diceSummation;
-            return lowerSection.yahtzee = diceSummation;
+            lowerSection.yahtzee = diceSummation;
 
         } else if (diceSameNumber.length === 2) {
             lowerSection.pair = diceSummation;
             dicePairArray.push(diceSameNumber);
-            return fullHouseTwoOfAKindTest = true;
+            fullHouseTwoOfAKindTest = true;
+
         } else {
             StraightTest++;
         }

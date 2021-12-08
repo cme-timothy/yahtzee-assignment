@@ -4,7 +4,7 @@ import {
 
 function turn() {
     let randomNumber;
-    function rollDice() {
+    function rollDie() {
         randomNumber = Math.floor((Math.random() * 6) + 1);
         return randomNumber;
     }
@@ -12,26 +12,26 @@ function turn() {
     function rollDiceFirstTime() {
     const input = prompt("To roll dice press ok");
         if (input === "") {
-            fiveDice.diceOne = 6;
-            fiveDice.diceTwo = 2;
-            fiveDice.diceThree = 3;
-            fiveDice.diceFour = 4;
-            fiveDice.diceFive = 5;
+            fiveDice.dieOne = rollDie();
+            fiveDice.dieTwo = rollDie();
+            fiveDice.dieThree = rollDie();
+            fiveDice.dieFour = rollDie();
+            fiveDice.dieFive = rollDie();
         }
     }
 
     function rollDiceAgain() {
-    const input = prompt("To roll dice type in dicenumber");
-        if (input === "diceOne") {
-            fiveDice.diceOne = rollDice();
-        } else if (input === "diceTwo") {
-            fiveDice.diceTwo = rollDice();
-        } else if (input === "diceThree") {
-            fiveDice.diceThree = rollDice();
-        } else if (input === "diceFour") {
-            fiveDice.diceFour = rollDice();
-        } else if (input === "diceFive") {
-            fiveDice.diceFive = rollDice();
+    const input = prompt("To roll a die type in die number");
+        if (input === "dieOne") {
+            fiveDice.dieOne = rollDie();
+        } else if (input === "dieTwo") {
+            fiveDice.dieTwo = rollDie();
+        } else if (input === "dieThree") {
+            fiveDice.dieThree = rollDie();
+        } else if (input === "dieFour") {
+            fiveDice.dieFour = rollDie();
+        } else if (input === "dieFive") {
+            fiveDice.dieFive = rollDie();
         }
     }
 
