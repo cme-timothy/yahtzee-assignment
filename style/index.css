@@ -1,0 +1,83 @@
+main {
+    max-width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section {
+    border: 2px solid black;
+    margin-bottom: 8px;
+}
+
+.sum-of-game {
+    border: 2px solid black;
+    margin-bottom: 8px;
+}
+
+h2 {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding: 4px 8px 4px 8px;
+    margin: 0;
+}
+
+.player {
+    text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+h3 {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding: 4px 8px 4px 8px;
+    margin: 0;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.dice {
+    text-align: center;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 5px 10px 5px 10px;
+    margin: auto;
+
+}
+
+.all-dice {
+    margin-bottom: 8px;
+}
+
+.dice-roll{
+    display: flex;
+    justify-content: center;
+}
+
+.upper-section {
+    display: grid;
+    grid-template-columns: 3fr repeat(2, 1fr);
+}
+
+.lower-section {
+    display: grid;
+    grid-template-columns: 3fr repeat(2, 1fr);
+}
+
+.sum-of-game {
+    display: grid;
+    grid-template-columns: 3fr repeat(2, 1fr);
+}
+
+.all-dice {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
