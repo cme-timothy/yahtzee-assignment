@@ -18,7 +18,7 @@ let keepDieTwo = false;
 let keepDieThree = false;
 let keepDieFour= false;
 let keepDieFive = false;
-
+let bajs;
 /* roll order events */
 function turn() {
     if (roll === 0) {
@@ -35,7 +35,7 @@ function turn() {
         return true;
     } else if (roll === 2) {
         roll = 0;
-        rollDiceAgain();
+        bajs = rollDiceAgain();
         keepDieChoiceOff = true;
         chooseDiceToKeep(keepDieChoiceOff);
         getDieOne.classList.remove("dice-keep");
@@ -50,6 +50,7 @@ function turn() {
         keepDieFiveTest = true;
         mainButton.textContent = "Next Player";
         console.log(fiveDice);
+        console.log(bajs);
         return false;
     }
 }
@@ -98,6 +99,7 @@ function turn() {
         fiveDice.dieFive = rollDie();
         getDieFive.textContent = fiveDice.dieFive;
         }
+        return fiveDice;
     }
 
 let keepDieOneTest = true;
@@ -105,7 +107,6 @@ let keepDieTwoTest = true;
 let keepDieThreeTest = true;
 let keepDieFourTest = true;
 let keepDieFiveTest = true;
-
 function chooseDiceToKeep(offTest) {
     if (!offTest){
     getDieOne.addEventListener("click", dieOneListener);
@@ -121,79 +122,79 @@ function chooseDiceToKeep(offTest) {
     getDieFive.removeEventListener("click", dieFiveListener);
     }
 }
-    function dieOneListener() {
-        if (keepDieOneTest) {
-            keepDieOne = true;
-            keepDieOneTest = false;
-            getDieOne.classList.add("dice-keep");
-            console.log("true");
-        } else if (!keepDieOneTest) {
-            keepDieOne = false;
-            keepDieOneTest = true;
-            getDieOne.classList.remove("dice-keep");
-            console.log("false");
-        }
+function dieOneListener() {
+    if (keepDieOneTest) {
+        keepDieOne = true;
+        keepDieOneTest = false;
+        getDieOne.classList.add("dice-keep");
+        console.log("true");
+    } else if (!keepDieOneTest) {
+        keepDieOne = false;
+        keepDieOneTest = true;
+        getDieOne.classList.remove("dice-keep");
+        console.log("false");
     }
-    function dieTwoListener() {
-        if (roll === 0){ 
-            getDieTwo.removeEventListener("click", dieTwoListener);
-        } else if (keepDieTwoTest) {
-            keepDieTwo = true;
-            keepDieTwoTest = false;
-            getDieTwo.classList.add("dice-keep");
-            console.log("true");
-        } else if (!keepDieTwoTest) {
-            keepDieTwo = false;
-            keepDieTwoTest = true;
-            getDieTwo.classList.remove("dice-keep");
-            console.log("false");
-        }
+}
+function dieTwoListener() {
+    if (roll === 0){ 
+        getDieTwo.removeEventListener("click", dieTwoListener);
+    } else if (keepDieTwoTest) {
+        keepDieTwo = true;
+        keepDieTwoTest = false;
+        getDieTwo.classList.add("dice-keep");
+        console.log("true");
+    } else if (!keepDieTwoTest) {
+        keepDieTwo = false;
+        keepDieTwoTest = true;
+        getDieTwo.classList.remove("dice-keep");
+        console.log("false");
     }
-    function dieThreeListener() {
-        if (roll === 0){ 
-            getDieThree.removeEventListener("click", dieThreeListener);
-        } else if (keepDieThreeTest) {
-            keepDieThree = true;
-            keepDieThreeTest = false;
-            getDieThree.classList.add("dice-keep");
-            console.log("true");
-        } else if (!keepDieThreeTest) {
-            keepDieThree = false;
-            keepDieThreeTest = true;
-            getDieThree.classList.remove("dice-keep");
-            console.log("false");
-        }
+}
+function dieThreeListener() {
+    if (roll === 0){ 
+        getDieThree.removeEventListener("click", dieThreeListener);
+    } else if (keepDieThreeTest) {
+        keepDieThree = true;
+        keepDieThreeTest = false;
+        getDieThree.classList.add("dice-keep");
+        console.log("true");
+    } else if (!keepDieThreeTest) {
+        keepDieThree = false;
+        keepDieThreeTest = true;
+        getDieThree.classList.remove("dice-keep");
+        console.log("false");
     }
-    function dieFourListener() {
-        if (roll === 0){ 
-            getDieFour.removeEventListener("click", dieFourListener);
-        } else if (keepDieFourTest) {
-            keepDieFour = true;
-            keepDieFourTest = false;
-            getDieFour.classList.add("dice-keep");
-            console.log("true");
-        } else if (!keepDieFourTest) {
-            keepDieFour = false;
-            keepDieFourTest = true;
-            getDieFour.classList.remove("dice-keep");
-            console.log("false");
-        }
+}
+function dieFourListener() {
+    if (roll === 0){ 
+        getDieFour.removeEventListener("click", dieFourListener);
+    } else if (keepDieFourTest) {
+        keepDieFour = true;
+        keepDieFourTest = false;
+        getDieFour.classList.add("dice-keep");
+        console.log("true");
+    } else if (!keepDieFourTest) {
+        keepDieFour = false;
+        keepDieFourTest = true;
+        getDieFour.classList.remove("dice-keep");
+        console.log("false");
     }
-    function dieFiveListener() {
-        if (roll === 0){ 
-            getDieFive.removeEventListener("click", dieFiveListener);
-        } else if (keepDieFiveTest) {
-            keepDieFive = true;
-            keepDieFiveTest = false;
-            getDieFive.classList.add("dice-keep");
-            console.log("true");
-        } else if (!keepDieFiveTest) {
-            keepDieFive = false;
-            keepDieFiveTest = true;
-            getDieFive.classList.remove("dice-keep");
-            console.log("false");
-        }
+}
+function dieFiveListener() {
+    if (roll === 0){ 
+        getDieFive.removeEventListener("click", dieFiveListener);
+    } else if (keepDieFiveTest) {
+        keepDieFive = true;
+        keepDieFiveTest = false;
+        getDieFive.classList.add("dice-keep");
+        console.log("true");
+    } else if (!keepDieFiveTest) {
+        keepDieFive = false;
+        keepDieFiveTest = true;
+        getDieFive.classList.remove("dice-keep");
+        console.log("false");
     }
+}
 /* summation of dice roll */
 let diceSummation = 0;
 const fiveDiceArray = Object.values(fiveDice);
