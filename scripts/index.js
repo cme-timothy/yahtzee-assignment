@@ -1,24 +1,44 @@
 import {
-    fiveDice,
-} from "./data.js";
-import turn from "./dice_roll.js";
+    turn,
+} from "./dice_roll.js";
 
-/* start game */
-const input = prompt("To start game press ok");
-if (input === "") {
-    turn();
-}
-
-/* summation of dice roll */
-let diceSummation = 0;
-const fiveDiceArray = Object.values(fiveDice);
-function sumOfDice(sum) {
-    return sum = fiveDiceArray.reduce((previous, current) => previous + current);
-}
-
-diceSummation = sumOfDice(diceSummation);
+let playerOne = false;
+let playerTwo = false;
+let click = 0;
+let turnStart = true;
+let nextPlayer = false;
+const mainButton = document.querySelector("button.main-button");
+mainButton.addEventListener("click", () => {
+    mainButton.textContent = "Roll Dice";
+    click++;
+    nextPlayer = false;
+    /* start game */
+    if (click === 2) {
+        playerOne = true;
+    } 
+    /* player one switch */
+    if (playerTwo && !turnStart) {
+        playerOne = true;
+        playerTwo = false;
+        turnStart = true;
+        nextPlayer = true;
+    /* player two switch */
+    } else if (playerOne && !turnStart) {
+        playerOne = false;
+        playerTwo = true;
+        turnStart = true;
+        nextPlayer = true;
+    } 
+    /* player one turn */
+    if (playerOne && turnStart && !nextPlayer) {
+        turnStart = turn();
+    } 
+    /* player two turn */
+    else if (playerTwo && turnStart && !nextPlayer) {
+        turnStart =  turn();
+    }
+});
 
 export {
-    fiveDiceArray,
-    diceSummation,
+    mainButton,
 };

@@ -4,7 +4,7 @@ import {
 import {
     fiveDiceArray,
     diceSummation,
-} from "./index.js";
+} from "./dice_roll.js";
 
 function lowerSectionTest() {
     const dicePairArray = [];

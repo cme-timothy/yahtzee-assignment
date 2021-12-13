@@ -1,4 +1,9 @@
+body {
+    cursor: default;
+}
+
 main {
+    font-size: 85%;
     max-width: 450px;
     margin-right: auto;
     margin-left: auto;
@@ -43,6 +48,7 @@ span {
 }
 
 .dice {
+    background-color: white;
     text-align: center;
     border-top: 2px solid black;
     border-right: 2px solid black;
@@ -51,6 +57,10 @@ span {
     padding: 5px 10px 5px 10px;
     margin: auto;
 
+}
+
+.dice-keep {
+    background-color: grey;
 }
 
 .all-dice {
