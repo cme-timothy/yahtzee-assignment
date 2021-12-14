@@ -98,6 +98,7 @@ function selectResult(onTest) {
     }
 }
 
+const mainButton = document.querySelector("button.main-button");
 /* upper section score */
 function acesResult() {
     if (playerOneScoreUpperSection.aces === -1 && playerOneInput[0].textContent !== "") {
@@ -108,6 +109,7 @@ function acesResult() {
             }
         }
         buttonPlayerOneAces.textContent = `[ ${playerOneScoreUpperSection.aces} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function twosResult() {
@@ -122,6 +124,7 @@ function twosResult() {
         playerOneInput[0].textContent = "";
         }
         buttonPlayerOneTwos.textContent = `[ ${playerOneScoreUpperSection.twos} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function threesResult() {
@@ -138,6 +141,7 @@ function threesResult() {
             }
         }
         buttonPlayerOneThrees.textContent = `[ ${playerOneScoreUpperSection.threes} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function foursResult() {
@@ -154,6 +158,7 @@ function foursResult() {
             }
         }
         buttonPlayerOneFours.textContent = `[ ${playerOneScoreUpperSection.fours} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function fivesResult() {
@@ -170,6 +175,7 @@ function fivesResult() {
             }
         }
         buttonPlayerOneFives.textContent = `[ ${playerOneScoreUpperSection.fives} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function sixesResult() {
@@ -186,6 +192,7 @@ function sixesResult() {
             }
         }
         buttonPlayerOneSixes.textContent = `[ ${playerOneScoreUpperSection.sixes} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 /* lower section score */
@@ -203,6 +210,7 @@ function threeOfAKindResult() {
             }
         }
         buttonPlayerOneThreeOfAKind.textContent = `[ ${playerOneScoreLowerSection.threeOfAKind} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function fourOfAKindResult() {
@@ -219,6 +227,7 @@ function fourOfAKindResult() {
             }
         }
         buttonPlayerOneFourOfAKind.textContent = `[ ${playerOneScoreLowerSection.fourOfAKind} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function fullHouseResult() {
@@ -235,6 +244,7 @@ function fullHouseResult() {
             }
         }
         buttonPlayerOneFullHouse.textContent = `[ ${playerOneScoreLowerSection.fullHouse} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function lowStraightResult() {
@@ -251,6 +261,7 @@ function lowStraightResult() {
             }
         }
         buttonPlayerOneLowStraight.textContent = `[ ${playerOneScoreLowerSection.lowStraight} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function highStraightResult() {
@@ -267,6 +278,7 @@ function highStraightResult() {
             }
         }
         buttonPlayerOneHighStraight.textContent = `[ ${playerOneScoreLowerSection.highStraight} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function yahtzeeResult() {
@@ -283,6 +295,7 @@ function yahtzeeResult() {
             }
         }
         buttonPlayerOneYahtzee.textContent = `[ ${playerOneScoreLowerSection.yahtzee} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 function chanceResult() {
@@ -299,6 +312,7 @@ function chanceResult() {
             }
         }
         buttonPlayerOneChance.textContent = `[ ${playerOneScoreLowerSection.chance} ]`;
+        mainButton.classList.remove("turn-off-button");
     }
 }
 

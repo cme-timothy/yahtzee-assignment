@@ -104,6 +104,7 @@ function turn() {
         }
         selectResultOn = true;
         selectResult(selectResultOn);
+        mainButton.classList.add("turn-off-button");
         return false;
     }
 }

@@ -47,10 +47,6 @@ span {
     border-left: 1px solid black;
 }
 
-span.displayNone {
-    display: none;
-}
-
 .player-one-input {
     display: flex;
     justify-content: center;
@@ -126,4 +122,9 @@ span.displayNone {
 .all-dice {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+}
+
+.turn-off-button {
+    background-color: darkgrey;
+    pointer-events: none;
 }
