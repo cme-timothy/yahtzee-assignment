@@ -1,40 +1,51 @@
 import {
     upperSection,
 } from "./data.js";
-import {
-    fiveDiceArray,
-    diceSummation,
-} from "./dice_roll.js";
 
-function upperSectionTest() {
+let sumOfAces = 0;
+let sumOfTwos = 0;
+let sumOfThrees = 0;
+let sumOfFours = 0;
+let sumOfFives = 0;
+let sumOfSixes = 0;
+function upperSectionTest(fiveDiceArray) {
 
     for (let i = 1; i <= 6; i++) {
         scoreTest(i);
     }
 
     function scoreTest(number) {
-    let diceNumber = fiveDiceArray.find(element => element === number);
-        if (diceNumber === 1) {
-            upperSection.aces = diceSummation;
+    let diceSameNumber = fiveDiceArray.filter(element => element === number);
+    
+        if (diceSameNumber[0] === 1) {
+            sumOfAces = diceSameNumber.length * 1;
+            upperSection.aces = sumOfAces;
         }
-        if (diceNumber === 2) {
-            upperSection.twos = diceSummation;
+        if (diceSameNumber[0] === 2) {
+            sumOfTwos = diceSameNumber.length * 2;
+            upperSection.twos = sumOfTwos;
         }
-        if (diceNumber === 3) {
-            upperSection.threes = diceSummation;
+        if (diceSameNumber[0] === 3) {
+            sumOfThrees = diceSameNumber.length * 3;
+            upperSection.threes = sumOfThrees;
         }
-        if (diceNumber === 4) {
-            upperSection.fours = diceSummation;
+        if (diceSameNumber[0] === 4) {
+            sumOfFours = diceSameNumber.length * 4;
+            upperSection.fours = sumOfFours;
         }
-        if (diceNumber === 5) {
-            upperSection.fives = diceSummation;
+        if (diceSameNumber[0] === 5) {
+            sumOfFives = diceSameNumber.length * 5;
+            upperSection.fives = sumOfFives;
         }
-        if (diceNumber === 6) {
-            upperSection.sixes = diceSummation;
+        if (diceSameNumber[0] === 6) {
+            sumOfSixes = diceSameNumber.length * 6;
+            upperSection.sixes = sumOfSixes;
         }
     }
+    console.log(upperSection);
     return upperSection;
 }
-console.log(upperSectionTest());
 
-export default upperSection;
+export {
+    upperSectionTest,
+};

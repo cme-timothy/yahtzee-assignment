@@ -47,6 +47,42 @@ span {
     border-left: 1px solid black;
 }
 
+span.displayNone {
+    display: none;
+}
+
+.player-one-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 0;
+    border-right: 0;
+    background-color: white;
+}
+
+.player-two-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 0;
+    border-right: 0;
+    background-color: white;
+}
+
+.player-one-aces {
+    background-color: greenyellow;
+    color: grey;
+}
+
+.player-one-aces-hover:hover {
+    background-color: green;
+    color: black;
+}
+
 .dice {
     background-color: white;
     text-align: center;

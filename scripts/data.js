@@ -16,8 +16,6 @@ const upperSection = {
 };
 
 const lowerSection = {
-    pair: 0,
-    twoPairs: 0,
     threeOfAKind: 0,
     fourOfAKind: 0,
     fullHouse: 0,
@@ -27,8 +25,50 @@ const lowerSection = {
     yahtzee: 0,
 };
 
+const playerOneScoreUpperSection = {
+    aces: -1,
+    twos: -1,
+    threes: -1,
+    fours: -1,
+    fives: -1,
+    sixes: -1,
+};
+
+const playerOneScoreLowerSection = { 
+    threeOfAKind: -1,
+    fourOfAKind: -1,
+    fullHouse: -1,
+    lowStraight: -1,
+    highStraight: -1,
+    chance: -1,
+    yahtzee: -1,
+};
+
+const playerTwoScoreUpperSection = {
+    aces: -1,
+    twos: -1,
+    threes: -1,
+    fours: -1,
+    fives: -1,
+    sixes: -1,
+};
+
+const playerTwoScoreLowerSection = {
+    threeOfAKind: -1,
+    fourOfAKind: -1,
+    fullHouse: -1,
+    lowStraight: -1,
+    highStraight: -1,
+    chance: -1,
+    yahtzee: -1,
+};
+
 export {
     fiveDice,
     upperSection,
     lowerSection,
+    playerOneScoreUpperSection,
+    playerOneScoreLowerSection,
+    playerTwoScoreUpperSection,
+    playerTwoScoreLowerSection,
 };

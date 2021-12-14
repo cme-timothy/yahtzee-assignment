@@ -1,9 +1,6 @@
 import {
     fiveDice,
 } from "./data.js";
-import {
-    mainButton,
-} from "./index.js";
 
 const getDieOne = document.querySelector("button#die-one");
 const getDieTwo = document.querySelector("button#die-two");
@@ -11,115 +8,79 @@ const getDieThree = document.querySelector("button#die-three");
 const getDieFour = document.querySelector("button#die-four");
 const getDieFive = document.querySelector("button#die-five");
 
-let roll = 0;
-let keepDieChoiceOff = false;
+let randomNumber;
+function rollDie() {
+    randomNumber = Math.floor((Math.random() * 6) + 1);
+    return randomNumber;
+}
+
+function rollDiceFirstTime() {
+    fiveDice.dieOne = rollDie();
+    getDieOne.textContent = fiveDice.dieOne;
+    fiveDice.dieTwo = rollDie();
+    getDieTwo.textContent = fiveDice.dieTwo;
+    fiveDice.dieThree = rollDie();
+    getDieThree.textContent = fiveDice.dieThree;
+    fiveDice.dieFour = rollDie();
+    getDieFour.textContent = fiveDice.dieFour;
+    fiveDice.dieFive = rollDie();
+    getDieFive.textContent = fiveDice.dieFive;
+}
+
 let keepDieOne = false;
 let keepDieTwo = false;
 let keepDieThree = false;
 let keepDieFour= false;
 let keepDieFive = false;
-let bajs;
-/* roll order events */
-function turn() {
-    if (roll === 0) {
-        roll++;
-        rollDiceFirstTime();
-        keepDieChoiceOff = false;
-        chooseDiceToKeep(keepDieChoiceOff);
-        mainButton.textContent = "Roll Dice Again";
-        return true;
-    } else if (roll === 1) {
-        roll++;
-        rollDiceAgain();
-        mainButton.textContent = "Roll Dice Last Time";
-        return true;
-    } else if (roll === 2) {
-        roll = 0;
-        bajs = rollDiceAgain();
-        keepDieChoiceOff = true;
-        chooseDiceToKeep(keepDieChoiceOff);
-        getDieOne.classList.remove("dice-keep");
-        getDieTwo.classList.remove("dice-keep");
-        getDieThree.classList.remove("dice-keep");
-        getDieFour.classList.remove("dice-keep");
-        getDieFive.classList.remove("dice-keep");
-        keepDieOneTest = true;
-        keepDieTwoTest = true;
-        keepDieThreeTest = true;
-        keepDieFourTest = true;
-        keepDieFiveTest = true;
-        mainButton.textContent = "Next Player";
-        console.log(fiveDice);
-        console.log(bajs);
-        return false;
+function rollDiceAgain() {
+    if (!keepDieOne) {
+    fiveDice.dieOne = rollDie();
+    getDieOne.textContent = fiveDice.dieOne;
     }
+    if (!keepDieTwo) {
+    fiveDice.dieTwo = rollDie();
+    getDieTwo.textContent = fiveDice.dieTwo;
+    }
+    if (!keepDieThree) {
+    fiveDice.dieThree = rollDie();
+    getDieThree.textContent = fiveDice.dieThree;
+    }
+    if (!keepDieFour) {
+    fiveDice.dieFour = rollDie();
+    getDieFour.textContent = fiveDice.dieFour;
+    }
+    if (!keepDieFive) {
+    fiveDice.dieFive = rollDie();
+    getDieFive.textContent = fiveDice.dieFive;
+    }
+    return fiveDice;
 }
-
-    let randomNumber;
-    function rollDie() {
-        randomNumber = Math.floor((Math.random() * 6) + 1);
-        return randomNumber;
-    }
-
-    function rollDiceFirstTime() {
-        fiveDice.dieOne = rollDie();
-        getDieOne.textContent = fiveDice.dieOne;
-
-        fiveDice.dieTwo = rollDie();
-        getDieTwo.textContent = fiveDice.dieTwo;
-
-        fiveDice.dieThree = rollDie();
-        getDieThree.textContent = fiveDice.dieThree;
-
-        fiveDice.dieFour = rollDie();
-        getDieFour.textContent = fiveDice.dieFour;
-
-        fiveDice.dieFive = rollDie();
-        getDieFive.textContent = fiveDice.dieFive;
-    }
-
-    function rollDiceAgain() {
-        if (!keepDieOne) {
-        fiveDice.dieOne = rollDie();
-        getDieOne.textContent = fiveDice.dieOne;
-        }
-        if (!keepDieTwo) {
-        fiveDice.dieTwo = rollDie();
-        getDieTwo.textContent = fiveDice.dieTwo;
-        }
-        if (!keepDieThree) {
-        fiveDice.dieThree = rollDie();
-        getDieThree.textContent = fiveDice.dieThree;
-        }
-        if (!keepDieFour) {
-        fiveDice.dieFour = rollDie();
-        getDieFour.textContent = fiveDice.dieFour;
-        }
-        if (!keepDieFive) {
-        fiveDice.dieFive = rollDie();
-        getDieFive.textContent = fiveDice.dieFive;
-        }
-        return fiveDice;
-    }
 
 let keepDieOneTest = true;
 let keepDieTwoTest = true;
 let keepDieThreeTest = true;
 let keepDieFourTest = true;
 let keepDieFiveTest = true;
-function chooseDiceToKeep(offTest) {
+function chooseDiceToKeep(offTest, turnTestsOff) {
     if (!offTest){
-    getDieOne.addEventListener("click", dieOneListener);
-    getDieTwo.addEventListener("click", dieTwoListener);
-    getDieThree.addEventListener("click", dieThreeListener);
-    getDieFour.addEventListener("click", dieFourListener);
-    getDieFive.addEventListener("click", dieFiveListener);
+        getDieOne.addEventListener("click", dieOneListener);
+        getDieTwo.addEventListener("click", dieTwoListener);
+        getDieThree.addEventListener("click", dieThreeListener);
+        getDieFour.addEventListener("click", dieFourListener);
+        getDieFive.addEventListener("click", dieFiveListener);
     } else if (offTest) {
-    getDieOne.removeEventListener("click", dieOneListener);
-    getDieTwo.removeEventListener("click", dieTwoListener);
-    getDieThree.removeEventListener("click", dieThreeListener);
-    getDieFour.removeEventListener("click", dieFourListener);
-    getDieFive.removeEventListener("click", dieFiveListener);
+        getDieOne.removeEventListener("click", dieOneListener);
+        getDieTwo.removeEventListener("click", dieTwoListener);
+        getDieThree.removeEventListener("click", dieThreeListener);
+        getDieFour.removeEventListener("click", dieFourListener);
+        getDieFive.removeEventListener("click", dieFiveListener);
+        if (turnTestsOff) {
+            keepDieOneTest = true;
+            keepDieTwoTest = true;
+            keepDieThreeTest = true;
+            keepDieFourTest = true;
+            keepDieFiveTest = true;
+        }
     }
 }
 function dieOneListener() {
@@ -136,9 +97,7 @@ function dieOneListener() {
     }
 }
 function dieTwoListener() {
-    if (roll === 0){ 
-        getDieTwo.removeEventListener("click", dieTwoListener);
-    } else if (keepDieTwoTest) {
+    if (keepDieTwoTest) {
         keepDieTwo = true;
         keepDieTwoTest = false;
         getDieTwo.classList.add("dice-keep");
@@ -151,9 +110,7 @@ function dieTwoListener() {
     }
 }
 function dieThreeListener() {
-    if (roll === 0){ 
-        getDieThree.removeEventListener("click", dieThreeListener);
-    } else if (keepDieThreeTest) {
+    if (keepDieThreeTest) {
         keepDieThree = true;
         keepDieThreeTest = false;
         getDieThree.classList.add("dice-keep");
@@ -166,9 +123,7 @@ function dieThreeListener() {
     }
 }
 function dieFourListener() {
-    if (roll === 0){ 
-        getDieFour.removeEventListener("click", dieFourListener);
-    } else if (keepDieFourTest) {
+    if (keepDieFourTest) {
         keepDieFour = true;
         keepDieFourTest = false;
         getDieFour.classList.add("dice-keep");
@@ -181,9 +136,7 @@ function dieFourListener() {
     }
 }
 function dieFiveListener() {
-    if (roll === 0){ 
-        getDieFive.removeEventListener("click", dieFiveListener);
-    } else if (keepDieFiveTest) {
+    if (keepDieFiveTest) {
         keepDieFive = true;
         keepDieFiveTest = false;
         getDieFive.classList.add("dice-keep");
@@ -195,17 +148,14 @@ function dieFiveListener() {
         console.log("false");
     }
 }
-/* summation of dice roll */
-let diceSummation = 0;
-const fiveDiceArray = Object.values(fiveDice);
-function sumOfDice(sum) {
-    return sum = fiveDiceArray.reduce((previous, current) => previous + current);
-}
-
-diceSummation = sumOfDice(diceSummation);
 
 export {
-    turn,
-    fiveDiceArray,
-    diceSummation,
+    rollDiceFirstTime,
+    rollDiceAgain,
+    chooseDiceToKeep,
+    keepDieOne,
+    keepDieTwo,
+    keepDieThree,
+    keepDieFour,
+    keepDieFive,
 };

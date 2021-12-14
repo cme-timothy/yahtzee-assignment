@@ -1,6 +1,6 @@
 import {
     turn,
-} from "./dice_roll.js";
+} from "./turn_actions.js";
 
 let playerOne = false;
 let playerTwo = false;
