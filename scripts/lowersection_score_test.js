@@ -9,26 +9,20 @@ function lowerSectionTest(fiveDiceArray, diceSummation) {
     for (let i = 1; i <= 6; i++) {
         diceTwoOrMoreOfAKind(i);
     }
-
     function diceTwoOrMoreOfAKind(number) {
     let diceSameNumber = fiveDiceArray.filter(element => element === number);
-    
         if (diceSameNumber.length === 3) {
             lowerSection.threeOfAKind = diceSummation;
             fullHouseThreeOfAKindTest = true;
-
         } else if (diceSameNumber.length === 4) {
             lowerSection.threeOfAKind = diceSummation;
             lowerSection.fourOfAKind = diceSummation;
-
         } else if (diceSameNumber.length === 5) {
             lowerSection.threeOfAKind = diceSummation;
             lowerSection.fourOfAKind = diceSummation;
             lowerSection.yahtzee = 50;
-
         } else if (diceSameNumber.length === 2) {
             fullHouseTwoOfAKindTest = true;
-
         } else {
             StraightTest++;
         }

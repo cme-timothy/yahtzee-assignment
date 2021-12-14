@@ -26,7 +26,6 @@ const getDieFour = document.querySelector("button#die-four");
 const getDieFive = document.querySelector("button#die-five");
 let keepDieChoiceOff = true;
 let selectResultOn = true;
-/* roll order and actions on turn */
 let roll = 0;
 function turn() {
     if (roll === 0) {
@@ -82,13 +81,27 @@ function turn() {
         }
         /* possible lower section results */
         let lowerSection = lowerSectionTest(fiveDiceArray, diceSummation);
+        if (playerOneInput[6].textContent === "") {
         playerOneInput[6].textContent = lowerSection.threeOfAKind;
+        }
+        if (playerOneInput[7].textContent === "") {
         playerOneInput[7].textContent = lowerSection.fourOfAKind;
+        }   
+        if (playerOneInput[8].textContent === "") {
         playerOneInput[8].textContent = lowerSection.fullHouse;
+        }
+        if (playerOneInput[9].textContent === "") {
         playerOneInput[9].textContent = lowerSection.lowStraight;
+        }
+        if (playerOneInput[10].textContent === "") {
         playerOneInput[10].textContent = lowerSection.highStraight;
+        }
+        if (playerOneInput[11].textContent === "") {
         playerOneInput[11].textContent = lowerSection.yahtzee;
+        }
+        if (playerOneInput[12].textContent === "") {
         playerOneInput[12].textContent = lowerSection.chance;
+        }
         selectResultOn = true;
         selectResult(selectResultOn);
         return false;

@@ -14,6 +14,14 @@ const buttonPlayerOneFours = document.querySelector("#fours-player-one-input");
 const buttonPlayerOneFives = document.querySelector("#fives-player-one-input");
 const buttonPlayerOneSixes = document.querySelector("#sixes-player-one-input");
 
+const buttonPlayerOneThreeOfAKind = document.querySelector("#three-of-a-Kind-player-one-input");
+const buttonPlayerOneFourOfAKind = document.querySelector("#four-of-a-Kind-player-one-input");
+const buttonPlayerOneFullHouse = document.querySelector("#full-house-player-one-input");
+const buttonPlayerOneLowStraight = document.querySelector("#low-straight-player-one-input");
+const buttonPlayerOneHighStraight = document.querySelector("#high-straight-player-one-input");
+const buttonPlayerOneYahtzee = document.querySelector("#yahtzee-player-one-input");
+const buttonPlayerOneChance = document.querySelector("#chance-player-one-input");
+
 function selectResult(onTest) {
     if (onTest){
         buttonPlayerOneAces.addEventListener("click", acesResult);
@@ -23,25 +31,53 @@ function selectResult(onTest) {
         buttonPlayerOneFives.addEventListener("click", fivesResult);
         buttonPlayerOneSixes.addEventListener("click", sixesResult);
 
-    /* scoring tests */
+        buttonPlayerOneThreeOfAKind.addEventListener("click", threeOfAKindResult);
+        buttonPlayerOneFourOfAKind.addEventListener("click", fourOfAKindResult);
+        buttonPlayerOneFullHouse.addEventListener("click", fullHouseResult);
+        buttonPlayerOneLowStraight.addEventListener("click", lowStraightResult);
+        buttonPlayerOneHighStraight.addEventListener("click", highStraightResult);
+        buttonPlayerOneYahtzee.addEventListener("click", yahtzeeResult);
+        buttonPlayerOneChance.addEventListener("click", chanceResult);
+
+    /* scoring tests upper section */
     let upperSectionScoreArray = [];
-    let values = Object.values(playerOneScoreUpperSection);
-    for (let i = 0; i < values.length; i++) {
-        if (values[i] !== -1) {
-        upperSectionScoreArray.push(values[i]);
+    let valuesUpperSection = Object.values(playerOneScoreUpperSection);
+    for (let i = 0; i < valuesUpperSection.length; i++) {
+        if (valuesUpperSection[i] !== -1) {
+        upperSectionScoreArray.push(valuesUpperSection[i]);
         }
     }
-    const buttonPlayerOneTotalUpperSection = document.querySelector("#total-upper-player-one-input");
+    const buttonPlayerOneTotalUpperSection = document.querySelector("#total-of-upper-section-player-one-input");
+    const buttonPlayerOneTotal = document.querySelector("#total-player-one-input");
     const buttonPlayerOneBonus = document.querySelector("#bonus-player-one-input");
     if (upperSectionScoreArray.length === 6) {
-        const sum = upperSectionScoreArray.reduce(function(a, b) { return a + b });
-        buttonPlayerOneTotalUpperSection.textContent = sum;
-        if (sum >= 63) {
+        const sumHigherSection = upperSectionScoreArray.reduce(function(a, b) { return a + b });
+        buttonPlayerOneTotal.textContent = sumHigherSection;
+        if (sumHigherSection >= 63) {
             buttonPlayerOneBonus.textContent = 35;
+            buttonPlayerOneTotalUpperSection.textContent = sumHigherSection + 35;
         } else {
             buttonPlayerOneBonus.textContent = 0;
+            buttonPlayerOneTotalUpperSection.textContent = sumHigherSection;
         }
 
+    }
+    /* scoring tests lower section */
+    let lowerSectionScoreArray = [];
+    let valuesLowerSection = Object.values(playerOneScoreLowerSection);
+    for (let i = 0; i < valuesLowerSection.length; i++) {
+        if (valuesLowerSection[i] !== -1) {
+        lowerSectionScoreArray.push(valuesLowerSection[i]);
+        }
+    }
+    const buttonPlayerOneTotalLowerSection = document.querySelector("#total-of-lower-section-player-one-input");
+    if (lowerSectionScoreArray.length === 7) {
+        const sumlowerSection = lowerSectionScoreArray.reduce(function(a, b) { return a + b });
+        buttonPlayerOneTotalLowerSection.textContent = sumlowerSection;
+    }
+    const grandTotalPlayerOne = document.querySelector("#grand-total-player-one-input");
+    if (parseFloat(buttonPlayerOneTotalLowerSection.textContent) > 0 && parseFloat(buttonPlayerOneTotalUpperSection.textContent) > 0) {
+        grandTotalPlayerOne.textContent = parseFloat(buttonPlayerOneTotalLowerSection.textContent) + parseFloat(buttonPlayerOneTotalUpperSection.textContent);
     }
 
     } else if (!onTest) {
@@ -51,10 +87,18 @@ function selectResult(onTest) {
     buttonPlayerOneFours.removeEventListener("click", foursResult);
     buttonPlayerOneFives.removeEventListener("click", fivesResult);
     buttonPlayerOneSixes.removeEventListener("click", sixesResult);
+
+    buttonPlayerOneThreeOfAKind.removeEventListener("click", threeOfAKindResult);
+    buttonPlayerOneFourOfAKind.removeEventListener("click", fourOfAKindResult);
+    buttonPlayerOneFullHouse.removeEventListener("click", fullHouseResult);
+    buttonPlayerOneLowStraight.removeEventListener("click", lowStraightResult);
+    buttonPlayerOneHighStraight.removeEventListener("click", highStraightResult);
+    buttonPlayerOneYahtzee.removeEventListener("click", yahtzeeResult);
+    buttonPlayerOneChance.removeEventListener("click", chanceResult);
     }
 }
 
-
+/* upper section score */
 function acesResult() {
     if (playerOneScoreUpperSection.aces === -1 && playerOneInput[0].textContent !== "") {
         playerOneScoreUpperSection.aces = parseFloat(buttonPlayerOneAces.textContent);
@@ -142,6 +186,119 @@ function sixesResult() {
             }
         }
         buttonPlayerOneSixes.textContent = `[ ${playerOneScoreUpperSection.sixes} ]`;
+    }
+}
+/* lower section score */
+function threeOfAKindResult() {
+    if (playerOneScoreLowerSection.threeOfAKind === -1 && playerOneInput[6].textContent !== "") {
+        playerOneScoreLowerSection.threeOfAKind = parseFloat(buttonPlayerOneThreeOfAKind.textContent);
+        for (let i = 6; i < playerOneInput.length; i++) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        for (let i = 5; i >= 0; i--) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        buttonPlayerOneThreeOfAKind.textContent = `[ ${playerOneScoreLowerSection.threeOfAKind} ]`;
+    }
+}
+function fourOfAKindResult() {
+    if (playerOneScoreLowerSection.fourOfAKind === -1 && playerOneInput[7].textContent !== "") {
+        playerOneScoreLowerSection.fourOfAKind = parseFloat(buttonPlayerOneFourOfAKind.textContent);
+        for (let i = 7; i < playerOneInput.length; i++) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        for (let i = 6; i >= 0; i--) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        buttonPlayerOneFourOfAKind.textContent = `[ ${playerOneScoreLowerSection.fourOfAKind} ]`;
+    }
+}
+function fullHouseResult() {
+    if (playerOneScoreLowerSection.fullHouse === -1 && playerOneInput[8].textContent !== "") {
+        playerOneScoreLowerSection.fullHouse = parseFloat(buttonPlayerOneFullHouse.textContent);
+        for (let i = 8; i < playerOneInput.length; i++) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        for (let i = 7; i >= 0; i--) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        buttonPlayerOneFullHouse.textContent = `[ ${playerOneScoreLowerSection.fullHouse} ]`;
+    }
+}
+function lowStraightResult() {
+    if (playerOneScoreLowerSection.lowStraight === -1 && playerOneInput[9].textContent !== "") {
+        playerOneScoreLowerSection.lowStraight = parseFloat(buttonPlayerOneLowStraight.textContent);
+        for (let i = 9; i < playerOneInput.length; i++) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        for (let i = 8; i >= 0; i--) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        buttonPlayerOneLowStraight.textContent = `[ ${playerOneScoreLowerSection.lowStraight} ]`;
+    }
+}
+function highStraightResult() {
+    if (playerOneScoreLowerSection.highStraight === -1 && playerOneInput[10].textContent !== "") {
+        playerOneScoreLowerSection.highStraight = parseFloat(buttonPlayerOneHighStraight.textContent);
+        for (let i = 10; i < playerOneInput.length; i++) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        for (let i = 9; i >= 0; i--) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        buttonPlayerOneHighStraight.textContent = `[ ${playerOneScoreLowerSection.highStraight} ]`;
+    }
+}
+function yahtzeeResult() {
+    if (playerOneScoreLowerSection.yahtzee === -1 && playerOneInput[11].textContent !== "") {
+        playerOneScoreLowerSection.yahtzee = parseFloat(buttonPlayerOneYahtzee.textContent);
+        for (let i = 11; i < playerOneInput.length; i++) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        for (let i = 10; i >= 0; i--) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        buttonPlayerOneYahtzee.textContent = `[ ${playerOneScoreLowerSection.yahtzee} ]`;
+    }
+}
+function chanceResult() {
+    if (playerOneScoreLowerSection.chance === -1 && playerOneInput[12].textContent !== "") {
+        playerOneScoreLowerSection.chance = parseFloat(buttonPlayerOneChance.textContent);
+        for (let i = 12; i < playerOneInput.length; i++) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        for (let i = 11; i >= 0; i--) {
+            if (playerOneInput[i].textContent.endsWith("]") === false) {
+            playerOneInput[i].textContent = "";
+            }
+        }
+        buttonPlayerOneChance.textContent = `[ ${playerOneScoreLowerSection.chance} ]`;
     }
 }
 
