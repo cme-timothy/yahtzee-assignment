@@ -46,15 +46,14 @@ function lowerSectionTest(fiveDiceArray, diceSummation) {
     const testFour = fiveDiceArray.find(element => element === 4);
     const testFive = fiveDiceArray.find(element => element === 5);
     const testSix = fiveDiceArray.find(element => element === 6);
-    if (StraightTest === 5) {
-        if (testOne && testTwo && testThree && testFour) {
-            lowerSection.lowStraight = 30;
-        } else if (testTwo && testThree && testFour && testFive) {
-            lowerSection.lowStraight = 30;
-        } else if (testThree && testFour && testFive && testSix) {
-            lowerSection.lowStraight = 30;
-        }
-    } else if (StraightTest === 6 && testSix && testOne === undefined) {
+    if (testOne && testTwo && testThree && testFour) {
+        lowerSection.lowStraight = 30;
+    } else if (testTwo && testThree && testFour && testFive) {
+        lowerSection.lowStraight = 30;
+    } else if (testThree && testFour && testFive && testSix) {
+        lowerSection.lowStraight = 30;
+    }
+    if (StraightTest === 6 && testSix && testOne === undefined) {
         lowerSection.lowStraight = 30;
         lowerSection.highStraight = 40;
     } else if (StraightTest === 6 && testOne && testSix === undefined) {

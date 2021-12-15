@@ -59,11 +59,11 @@ mainButton.addEventListener("click", () => {
         click = 0;
     }
     if (mainButton.textContent === "Next Player") {
-        getDieOne.textContent = 1;
-        getDieTwo.textContent = 1;
-        getDieThree.textContent = 1;
-        getDieFour.textContent = 1;
-        getDieFive.textContent = 1;
+        getDieOne.textContent = 0;
+        getDieTwo.textContent = 0;
+        getDieThree.textContent = 0;
+        getDieFour.textContent = 0;
+        getDieFive.textContent = 0;
     }
     click++;
     mainButton.textContent = "Roll Dice";

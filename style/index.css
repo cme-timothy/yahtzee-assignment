@@ -169,3 +169,13 @@ span {
   text-align: center;
   border: 0;
 }
+
+.rules-box {
+    padding: 4px 8px 4px 8px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    margin-top: 0;
+
+}
