@@ -3,7 +3,6 @@ body {
 }
 
 main {
-  font-size: 85%;
   max-width: 450px;
   margin-right: auto;
   margin-left: auto;
@@ -48,8 +47,6 @@ span {
   align-items: center;
   border-bottom: 1px solid black;
   border-left: 1px solid black;
-  font-size: 0.8125rem;
-  font-family: Arial;
 }
 
 .player-one-input {
@@ -60,8 +57,6 @@ span {
   border-left: 1px solid black;
   border-top: 0;
   border-right: 0;
-  background-color: white;
-  font-size: 0.8125rem;
 }
 
 .player-two-input {
@@ -72,21 +67,9 @@ span {
   border-left: 1px solid black;
   border-top: 0;
   border-right: 0;
-  background-color: white;
-}
-
-.player-one-aces {
-  background-color: greenyellow;
-  color: grey;
-}
-
-.player-one-aces-hover:hover {
-  background-color: green;
-  color: black;
 }
 
 .dice {
-  background-color: white;
   text-align: center;
   border-top: 2px solid black;
   border-right: 2px solid black;
@@ -94,15 +77,12 @@ span {
   border-left: 3px solid black;
   padding: 5px 10px 5px 10px;
   margin: auto;
-  font-size: 0.8125rem;
-}
-
-.dice-keep {
-  background-color: grey;
 }
 
 .all-dice {
   margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .dice-roll {
@@ -125,13 +105,7 @@ span {
   grid-template-columns: 3fr repeat(2, 1fr);
 }
 
-.all-dice {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-
 .turn-off-button {
-  background-color: darkgrey;
   pointer-events: none;
 }
 
@@ -143,8 +117,6 @@ span {
 
 .dice-rules {
   padding: 4px 8px 4px 8px;
-  font-size: 1.17em;
-  font-weight: bold;
   border-left: 0;
   border-bottom: 0;
 }
@@ -155,7 +127,6 @@ span {
 
 .game-explanation {
   display: inline;
-  font-size: 1.17em;
 }
 
 .info-section {
@@ -171,11 +142,10 @@ span {
 }
 
 .rules-box {
-    padding: 4px 8px 4px 8px;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 3px solid black;
-    border-left: 3px solid black;
-    margin-top: 0;
-
+  padding: 4px 8px 4px 8px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  margin-top: 0;
 }

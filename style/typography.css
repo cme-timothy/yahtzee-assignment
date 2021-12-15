@@ -1,0 +1,29 @@
+main {
+  font-size: 85%;
+}
+
+span {
+  font-size: 0.8125rem;
+  font-family: Arial;
+}
+
+.player-one-input {
+  font-size: 0.8125rem;
+}
+
+.player-two-input {
+  font-size: 0.8125rem;
+}
+
+.dice {
+  font-size: 0.8125rem;
+}
+
+.dice-rules {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.game-explanation {
+  font-size: 1.17em;
+}

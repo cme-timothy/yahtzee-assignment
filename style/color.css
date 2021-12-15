@@ -1,0 +1,18 @@
+.player-one-input {
+  background-color: white;
+}
+.player-two-input {
+  background-color: white;
+}
+
+.dice {
+  background-color: white;
+}
+
+.dice-keep {
+  background-color: grey;
+}
+
+.turn-off-button {
+  background-color: darkgrey;
+}

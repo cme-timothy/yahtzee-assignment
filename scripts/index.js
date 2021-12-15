@@ -35,7 +35,8 @@ const buttonPlayerTwoTotal = document.querySelector("#total-player-two-input");
 const buttonPlayerTwoBonus = document.querySelector("#bonus-player-two-input");
 
 mainButton.addEventListener("click", () => {
-    if (gameExplanation.textContent === "Press Reset Game to Start Again") {
+    /* reseting game */
+    if (mainButton.textContent === "Reset Game") {
         for (let i = 0; i < playerOneInput.length; i++) {
             playerOneInput[i].textContent = "";
         }
@@ -58,7 +59,7 @@ mainButton.addEventListener("click", () => {
         playerTwo = false;
         click = 0;
     }
-    if (mainButton.textContent === "Next Player") {
+    if (mainButton.textContent === "Next Player" || mainButton.textContent === "Reset Game") {
         getDieOne.textContent = 0;
         getDieTwo.textContent = 0;
         getDieThree.textContent = 0;
@@ -72,7 +73,6 @@ mainButton.addEventListener("click", () => {
     if (click === 1) {
         gameExplanation.textContent = "Player 1 Turn";
     }
-    /* start game */
     if (click === 2) {
         playerOne = true;
     }
@@ -80,6 +80,7 @@ mainButton.addEventListener("click", () => {
     if (playerTwo && !turnStart) {
         gameExplanation.textContent = "Player 1 Turn";
         let onTest;
+        /* winner test */
         selectResult(onTest, playerOne, playerTwo);
         if (grandTotalPlayerOne.textContent > 0 && grandTotalPlayerTwo.textContent > 0) {
             if (grandTotalPlayerOne.textContent > grandTotalPlayerTwo.textContent) {
@@ -89,14 +90,17 @@ mainButton.addEventListener("click", () => {
             } else {
                 gameExplanation.textContent = `Game Tie ${grandTotalPlayerOne.textContent}:${grandTotalPlayerTwo.textContent}`;
             }
+            let resetButton = false
             mainButton.textContent = "Reset Game";
+            selectResult(onTest, playerOne, playerTwo, resetButton);
         }
         playerOne = true;
         playerTwo = false;
         turnStart = true;
         nextPlayer = true;
-        /* player two switch */
-    } else if (playerOne && !turnStart) {
+    }
+    /* player two switch */
+    else if (playerOne && !turnStart) {
         gameExplanation.textContent = "Player 2 Turn";
         let onTest;
         selectResult(onTest, playerOne, playerTwo);

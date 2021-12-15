@@ -39,7 +39,13 @@ const buttonPlayerTwoHighStraight = document.querySelector("#high-straight-playe
 const buttonPlayerTwoYahtzee = document.querySelector("#yahtzee-player-two-input");
 const buttonPlayerTwoChance = document.querySelector("#chance-player-two-input");
 
-function selectResult(onTest, playerOne, playerTwo) {
+let stopSelectPlayerOne = false;
+let stopSelectPlayerTwo = false;
+function selectResult(onTest, playerOne, playerTwo, resetButton) {
+    if (resetButton === false) {
+        stopSelectPlayerOne = false;
+        stopSelectPlayerTwo = false;
+    }
     if (playerOne) {
         /* scoring tests upper section player one */
         let upperSectionScoreArray = [];
@@ -97,6 +103,11 @@ function selectResult(onTest, playerOne, playerTwo) {
             playerOneScoreLowerSection.highStraight = -1;
             playerOneScoreLowerSection.yahtzee = -1;
             playerOneScoreLowerSection.chance = -1;
+
+            /* score select stop */
+            if (resetButton !== false) {
+                stopSelectPlayerOne = true;
+            }
         }
     } else if (playerTwo) {
         /* scoring tests upper section player two */
@@ -122,7 +133,7 @@ function selectResult(onTest, playerOne, playerTwo) {
             }
 
         }
-        /* scoring tests lower section player one */
+        /* scoring tests lower section player two */
         let lowerSectionScoreArray = [];
         let valuesLowerSection = Object.values(playerTwoScoreLowerSection);
         for (let i = 0; i < valuesLowerSection.length; i++) {
@@ -155,10 +166,15 @@ function selectResult(onTest, playerOne, playerTwo) {
             playerTwoScoreLowerSection.highStraight = -1;
             playerTwoScoreLowerSection.yahtzee = -1;
             playerTwoScoreLowerSection.chance = -1;
+
+            /* score select stop */
+            if (resetButton !== false) {
+                stopSelectPlayerTwo = true;
+            }
         }
     }
+    /* player one */
     if (onTest) {
-        /* player one */
         buttonPlayerOneAces.addEventListener("click", acesResultPlayerOne);
         buttonPlayerOneTwos.addEventListener("click", twosResultPlayerOne);
         buttonPlayerOneThrees.addEventListener("click", threesResultPlayerOne);
@@ -173,23 +189,8 @@ function selectResult(onTest, playerOne, playerTwo) {
         buttonPlayerOneHighStraight.addEventListener("click", highStraightResultPlayerOne);
         buttonPlayerOneYahtzee.addEventListener("click", yahtzeeResultPlayerOne);
         buttonPlayerOneChance.addEventListener("click", chanceResultPlayerOne);
-        /* player two */
-        buttonPlayerTwoAces.addEventListener("click", acesResult);
-        buttonPlayerTwoTwos.addEventListener("click", twosResult);
-        buttonPlayerTwoThrees.addEventListener("click", threesResult);
-        buttonPlayerTwoFours.addEventListener("click", foursResult);
-        buttonPlayerTwoFives.addEventListener("click", fivesResult);
-        buttonPlayerTwoSixes.addEventListener("click", sixesResult);
-
-        buttonPlayerTwoThreeOfAKind.addEventListener("click", threeOfAKindResult);
-        buttonPlayerTwoFourOfAKind.addEventListener("click", fourOfAKindResult);
-        buttonPlayerTwoFullHouse.addEventListener("click", fullHouseResult);
-        buttonPlayerTwoLowStraight.addEventListener("click", lowStraightResult);
-        buttonPlayerTwoHighStraight.addEventListener("click", highStraightResult);
-        buttonPlayerTwoYahtzee.addEventListener("click", yahtzeeResult);
-        buttonPlayerTwoChance.addEventListener("click", chanceResult);
-    } else if (onTest === false) {
-        /* player one */
+    }
+    if (onTest === false || stopSelectPlayerOne) {
         buttonPlayerOneAces.removeEventListener("click", acesResultPlayerOne);
         buttonPlayerOneTwos.removeEventListener("click", twosResultPlayerOne);
         buttonPlayerOneThrees.removeEventListener("click", threesResultPlayerOne);
@@ -204,7 +205,25 @@ function selectResult(onTest, playerOne, playerTwo) {
         buttonPlayerOneHighStraight.removeEventListener("click", highStraightResultPlayerOne);
         buttonPlayerOneYahtzee.removeEventListener("click", yahtzeeResultPlayerOne);
         buttonPlayerOneChance.removeEventListener("click", chanceResultPlayerOne);
-        /* player two */
+    }
+    /* player two */
+    if (onTest) {
+        buttonPlayerTwoAces.addEventListener("click", acesResult);
+        buttonPlayerTwoTwos.addEventListener("click", twosResult);
+        buttonPlayerTwoThrees.addEventListener("click", threesResult);
+        buttonPlayerTwoFours.addEventListener("click", foursResult);
+        buttonPlayerTwoFives.addEventListener("click", fivesResult);
+        buttonPlayerTwoSixes.addEventListener("click", sixesResult);
+
+        buttonPlayerTwoThreeOfAKind.addEventListener("click", threeOfAKindResult);
+        buttonPlayerTwoFourOfAKind.addEventListener("click", fourOfAKindResult);
+        buttonPlayerTwoFullHouse.addEventListener("click", fullHouseResult);
+        buttonPlayerTwoLowStraight.addEventListener("click", lowStraightResult);
+        buttonPlayerTwoHighStraight.addEventListener("click", highStraightResult);
+        buttonPlayerTwoYahtzee.addEventListener("click", yahtzeeResult);
+        buttonPlayerTwoChance.addEventListener("click", chanceResult);
+    }
+    if (onTest === false || stopSelectPlayerTwo) {
         buttonPlayerTwoAces.removeEventListener("click", acesResult);
         buttonPlayerTwoTwos.removeEventListener("click", twosResult);
         buttonPlayerTwoThrees.removeEventListener("click", threesResult);
@@ -220,6 +239,7 @@ function selectResult(onTest, playerOne, playerTwo) {
         buttonPlayerTwoYahtzee.removeEventListener("click", yahtzeeResult);
         buttonPlayerTwoChance.removeEventListener("click", chanceResult);
     }
+
 }
 const mainButton = document.querySelector("button.main-button");
 /* upper section score player one */
