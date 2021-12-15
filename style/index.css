@@ -1,171 +1,171 @@
 body {
-    cursor: default;
+  cursor: default;
 }
 
 main {
-    font-size: 85%;
-    max-width: 450px;
-    margin-right: auto;
-    margin-left: auto;
+  font-size: 85%;
+  max-width: 450px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 section {
-    border: 2px solid black;
-    margin-bottom: 8px;
+  border: 2px solid black;
+  margin-bottom: 8px;
 }
 
 .sum-of-game {
-    border: 2px solid black;
-    margin-bottom: 8px;
+  border: 2px solid black;
+  margin-bottom: 8px;
 }
 
 h1 {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 h2 {
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    padding: 4px 8px 4px 8px;
-    margin: 0;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  padding: 4px 8px 4px 8px;
+  margin: 0;
 }
 
 .player {
-    text-align: center;
-    padding-right: 0;
-    padding-left: 0;
+  text-align: center;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 h3 {
-    border-left: 1px solid black;
-    padding: 4px 8px 4px 8px;
-    margin: 0;
+  border-left: 1px solid black;
+  padding: 4px 8px 4px 8px;
+  margin: 0;
 }
 
 span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    font-size: 0.8125rem;
-    font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  font-size: 0.8125rem;
+  font-family: Arial;
 }
 
 .player-one-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-top: 0;
-    border-right: 0;
-    background-color: white;
-    font-size: 0.8125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-top: 0;
+  border-right: 0;
+  background-color: white;
+  font-size: 0.8125rem;
 }
 
 .player-two-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-top: 0;
-    border-right: 0;
-    background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-top: 0;
+  border-right: 0;
+  background-color: white;
 }
 
 .player-one-aces {
-    background-color: greenyellow;
-    color: grey;
+  background-color: greenyellow;
+  color: grey;
 }
 
 .player-one-aces-hover:hover {
-    background-color: green;
-    color: black;
+  background-color: green;
+  color: black;
 }
 
 .dice {
-    background-color: white;
-    text-align: center;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 3px solid black;
-    border-left: 3px solid black;
-    padding: 5px 10px 5px 10px;
-    margin: auto;
-    font-size: 0.8125rem;
+  background-color: white;
+  text-align: center;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  padding: 5px 10px 5px 10px;
+  margin: auto;
+  font-size: 0.8125rem;
 }
 
 .dice-keep {
-    background-color: grey;
+  background-color: grey;
 }
 
 .all-dice {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
-.dice-roll{
-    display: flex;
-    justify-content: center;
+.dice-roll {
+  display: flex;
+  justify-content: center;
 }
 
 .upper-section {
-    display: grid;
-    grid-template-columns: 3fr repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: 3fr repeat(2, 1fr);
 }
 
 .lower-section {
-    display: grid;
-    grid-template-columns: 3fr repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: 3fr repeat(2, 1fr);
 }
 
 .sum-of-game {
-    display: grid;
-    grid-template-columns: 3fr repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: 3fr repeat(2, 1fr);
 }
 
 .all-dice {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .turn-off-button {
-    background-color: darkgrey;
-    pointer-events: none;
+  background-color: darkgrey;
+  pointer-events: none;
 }
 
 .rows-beginning {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 
 .dice-rules {
-    padding: 4px 8px 4px 8px;
-    font-size: 1.17em;
-    font-weight: bold;
-    border-left: 0;
-    border-bottom: 0;
+  padding: 4px 8px 4px 8px;
+  font-size: 1.17em;
+  font-weight: bold;
+  border-left: 0;
+  border-bottom: 0;
 }
 
 .no-rules-explanation {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .game-explanation {
-    display: inline;
-    font-size: 1.17em;
+  display: inline;
+  font-size: 1.17em;
 }
 
 .info-section {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .game-explanation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 0;
 }

@@ -13,12 +13,12 @@ function lowerSectionTest(fiveDiceArray, diceSummation) {
 
     let fullHouseThreeOfAKindTest = false;
     let fullHouseTwoOfAKindTest = false;
-    let StraightTest= 0;
+    let StraightTest = 0;
     for (let i = 1; i <= 6; i++) {
         diceTwoOrMoreOfAKind(i);
     }
     function diceTwoOrMoreOfAKind(number) {
-    let diceSameNumber = fiveDiceArray.filter(element => element === number);
+        let diceSameNumber = fiveDiceArray.filter(element => element === number);
         if (diceSameNumber.length === 3) {
             lowerSection.threeOfAKind = diceSummation;
             fullHouseThreeOfAKindTest = true;
@@ -47,13 +47,13 @@ function lowerSectionTest(fiveDiceArray, diceSummation) {
     const testFive = fiveDiceArray.find(element => element === 5);
     const testSix = fiveDiceArray.find(element => element === 6);
     if (StraightTest === 5) {
-            if(testOne && testTwo && testThree && testFour) {
+        if (testOne && testTwo && testThree && testFour) {
             lowerSection.lowStraight = 30;
-            } else if (testTwo && testThree && testFour && testFive) {
+        } else if (testTwo && testThree && testFour && testFive) {
             lowerSection.lowStraight = 30;
-            } else if (testThree && testFour && testFive && testSix) {
+        } else if (testThree && testFour && testFive && testSix) {
             lowerSection.lowStraight = 30;
-            }
+        }
     } else if (StraightTest === 6 && testSix && testOne === undefined) {
         lowerSection.lowStraight = 30;
         lowerSection.highStraight = 40;

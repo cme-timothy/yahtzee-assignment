@@ -46,14 +46,14 @@ function selectResult(onTest, playerOne, playerTwo) {
         let valuesUpperSection = Object.values(playerOneScoreUpperSection);
         for (let i = 0; i < valuesUpperSection.length; i++) {
             if (valuesUpperSection[i] !== -1) {
-            upperSectionScoreArray.push(valuesUpperSection[i]);
+                upperSectionScoreArray.push(valuesUpperSection[i]);
             }
         }
         const buttonPlayerOneTotalUpperSection = document.querySelector("#total-of-upper-section-player-one-input");
         const buttonPlayerOneTotal = document.querySelector("#total-player-one-input");
         const buttonPlayerOneBonus = document.querySelector("#bonus-player-one-input");
         if (upperSectionScoreArray.length === 6) {
-            const sumHigherSection = upperSectionScoreArray.reduce(function(a, b) { return a + b });
+            const sumHigherSection = upperSectionScoreArray.reduce(function (a, b) { return a + b });
             buttonPlayerOneTotal.textContent = sumHigherSection;
             if (sumHigherSection >= 63) {
                 buttonPlayerOneBonus.textContent = 35;
@@ -62,19 +62,19 @@ function selectResult(onTest, playerOne, playerTwo) {
                 buttonPlayerOneBonus.textContent = 0;
                 buttonPlayerOneTotalUpperSection.textContent = sumHigherSection;
             }
-    
+
         }
         /* scoring tests lower section player one */
         let lowerSectionScoreArray = [];
         let valuesLowerSection = Object.values(playerOneScoreLowerSection);
         for (let i = 0; i < valuesLowerSection.length; i++) {
             if (valuesLowerSection[i] !== -1) {
-            lowerSectionScoreArray.push(valuesLowerSection[i]);
+                lowerSectionScoreArray.push(valuesLowerSection[i]);
             }
         }
         const buttonPlayerOneTotalLowerSection = document.querySelector("#total-of-lower-section-player-one-input");
         if (lowerSectionScoreArray.length === 7) {
-            const sumlowerSection = lowerSectionScoreArray.reduce(function(a, b) { return a + b });
+            const sumlowerSection = lowerSectionScoreArray.reduce(function (a, b) { return a + b });
             buttonPlayerOneTotalLowerSection.textContent = sumlowerSection;
         }
         /* grand score test player one */
@@ -104,14 +104,14 @@ function selectResult(onTest, playerOne, playerTwo) {
         let valuesUpperSection = Object.values(playerTwoScoreUpperSection);
         for (let i = 0; i < valuesUpperSection.length; i++) {
             if (valuesUpperSection[i] !== -1) {
-            upperSectionScoreArray.push(valuesUpperSection[i]);
+                upperSectionScoreArray.push(valuesUpperSection[i]);
             }
         }
         const buttonPlayerTwoTotalUpperSection = document.querySelector("#total-of-upper-section-player-two-input");
         const buttonPlayerTwoTotal = document.querySelector("#total-player-two-input");
         const buttonPlayerTwoBonus = document.querySelector("#bonus-player-two-input");
         if (upperSectionScoreArray.length === 6) {
-            const sumHigherSection = upperSectionScoreArray.reduce(function(a, b) { return a + b });
+            const sumHigherSection = upperSectionScoreArray.reduce(function (a, b) { return a + b });
             buttonPlayerTwoTotal.textContent = sumHigherSection;
             if (sumHigherSection >= 63) {
                 buttonPlayerTwoBonus.textContent = 35;
@@ -120,19 +120,19 @@ function selectResult(onTest, playerOne, playerTwo) {
                 buttonPlayerTwoBonus.textContent = 0;
                 buttonPlayerTwoTotalUpperSection.textContent = sumHigherSection;
             }
-    
+
         }
         /* scoring tests lower section player one */
         let lowerSectionScoreArray = [];
         let valuesLowerSection = Object.values(playerTwoScoreLowerSection);
         for (let i = 0; i < valuesLowerSection.length; i++) {
             if (valuesLowerSection[i] !== -1) {
-            lowerSectionScoreArray.push(valuesLowerSection[i]);
+                lowerSectionScoreArray.push(valuesLowerSection[i]);
             }
         }
         const buttonPlayerTwoTotalLowerSection = document.querySelector("#total-of-lower-section-player-two-input");
         if (lowerSectionScoreArray.length === 7) {
-            const sumlowerSection = lowerSectionScoreArray.reduce(function(a, b) { return a + b });
+            const sumlowerSection = lowerSectionScoreArray.reduce(function (a, b) { return a + b });
             buttonPlayerTwoTotalLowerSection.textContent = sumlowerSection;
         }
         /* grand score test player two */
@@ -157,7 +157,7 @@ function selectResult(onTest, playerOne, playerTwo) {
             playerTwoScoreLowerSection.chance = -1;
         }
     }
-    if (onTest){
+    if (onTest) {
         /* player one */
         buttonPlayerOneAces.addEventListener("click", acesResultPlayerOne);
         buttonPlayerOneTwos.addEventListener("click", twosResultPlayerOne);
@@ -228,7 +228,7 @@ function acesResultPlayerOne() {
         playerOneScoreUpperSection.aces = parseFloat(buttonPlayerOneAces.textContent);
         for (let i = 1; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneAces.textContent = `[ ${playerOneScoreUpperSection.aces} ]`;
@@ -240,11 +240,11 @@ function twosResultPlayerOne() {
         playerOneScoreUpperSection.twos = parseFloat(buttonPlayerOneTwos.textContent);
         for (let i = 1; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         if (playerOneInput[0].textContent.endsWith("]") === false) {
-        playerOneInput[0].textContent = "";
+            playerOneInput[0].textContent = "";
         }
         buttonPlayerOneTwos.textContent = `[ ${playerOneScoreUpperSection.twos} ]`;
         mainButton.classList.remove("turn-off-button");
@@ -255,12 +255,12 @@ function threesResultPlayerOne() {
         playerOneScoreUpperSection.threes = parseFloat(buttonPlayerOneThrees.textContent);
         for (let i = 2; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 1; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneThrees.textContent = `[ ${playerOneScoreUpperSection.threes} ]`;
@@ -272,12 +272,12 @@ function foursResultPlayerOne() {
         playerOneScoreUpperSection.fours = parseFloat(buttonPlayerOneFours.textContent);
         for (let i = 3; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 2; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneFours.textContent = `[ ${playerOneScoreUpperSection.fours} ]`;
@@ -289,12 +289,12 @@ function fivesResultPlayerOne() {
         playerOneScoreUpperSection.fives = parseFloat(buttonPlayerOneFives.textContent);
         for (let i = 4; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 3; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneFives.textContent = `[ ${playerOneScoreUpperSection.fives} ]`;
@@ -306,12 +306,12 @@ function sixesResultPlayerOne() {
         playerOneScoreUpperSection.sixes = parseFloat(buttonPlayerOneSixes.textContent);
         for (let i = 5; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 4; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneSixes.textContent = `[ ${playerOneScoreUpperSection.sixes} ]`;
@@ -324,12 +324,12 @@ function threeOfAKindResultPlayerOne() {
         playerOneScoreLowerSection.threeOfAKind = parseFloat(buttonPlayerOneThreeOfAKind.textContent);
         for (let i = 6; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 5; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneThreeOfAKind.textContent = `[ ${playerOneScoreLowerSection.threeOfAKind} ]`;
@@ -341,12 +341,12 @@ function fourOfAKindResultPlayerOne() {
         playerOneScoreLowerSection.fourOfAKind = parseFloat(buttonPlayerOneFourOfAKind.textContent);
         for (let i = 7; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 6; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneFourOfAKind.textContent = `[ ${playerOneScoreLowerSection.fourOfAKind} ]`;
@@ -358,12 +358,12 @@ function fullHouseResultPlayerOne() {
         playerOneScoreLowerSection.fullHouse = parseFloat(buttonPlayerOneFullHouse.textContent);
         for (let i = 8; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 7; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneFullHouse.textContent = `[ ${playerOneScoreLowerSection.fullHouse} ]`;
@@ -375,12 +375,12 @@ function lowStraightResultPlayerOne() {
         playerOneScoreLowerSection.lowStraight = parseFloat(buttonPlayerOneLowStraight.textContent);
         for (let i = 9; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 8; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneLowStraight.textContent = `[ ${playerOneScoreLowerSection.lowStraight} ]`;
@@ -392,12 +392,12 @@ function highStraightResultPlayerOne() {
         playerOneScoreLowerSection.highStraight = parseFloat(buttonPlayerOneHighStraight.textContent);
         for (let i = 10; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 9; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneHighStraight.textContent = `[ ${playerOneScoreLowerSection.highStraight} ]`;
@@ -409,12 +409,12 @@ function yahtzeeResultPlayerOne() {
         playerOneScoreLowerSection.yahtzee = parseFloat(buttonPlayerOneYahtzee.textContent);
         for (let i = 11; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 10; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneYahtzee.textContent = `[ ${playerOneScoreLowerSection.yahtzee} ]`;
@@ -426,12 +426,12 @@ function chanceResultPlayerOne() {
         playerOneScoreLowerSection.chance = parseFloat(buttonPlayerOneChance.textContent);
         for (let i = 12; i < playerOneInput.length; i++) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         for (let i = 11; i >= 0; i--) {
             if (playerOneInput[i].textContent.endsWith("]") === false) {
-            playerOneInput[i].textContent = "";
+                playerOneInput[i].textContent = "";
             }
         }
         buttonPlayerOneChance.textContent = `[ ${playerOneScoreLowerSection.chance} ]`;
@@ -444,7 +444,7 @@ function acesResult() {
         playerTwoScoreUpperSection.aces = parseFloat(buttonPlayerTwoAces.textContent);
         for (let i = 1; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -457,11 +457,11 @@ function twosResult() {
         playerTwoScoreUpperSection.twos = parseFloat(buttonPlayerTwoTwos.textContent);
         for (let i = 1; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         if (playerTwoInput[0].textContent.endsWith("]") === false) {
-        playerTwoInput[0].textContent = "";
+            playerTwoInput[0].textContent = "";
         }
         grandResults();
         buttonPlayerTwoTwos.textContent = `[ ${playerTwoScoreUpperSection.twos} ]`;
@@ -473,12 +473,12 @@ function threesResult() {
         playerTwoScoreUpperSection.threes = parseFloat(buttonPlayerTwoThrees.textContent);
         for (let i = 2; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 1; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -491,12 +491,12 @@ function foursResult() {
         playerTwoScoreUpperSection.fours = parseFloat(buttonPlayerTwoFours.textContent);
         for (let i = 3; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 2; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -509,12 +509,12 @@ function fivesResult() {
         playerTwoScoreUpperSection.fives = parseFloat(buttonPlayerTwoFives.textContent);
         for (let i = 4; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 3; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -527,12 +527,12 @@ function sixesResult() {
         playerTwoScoreUpperSection.sixes = parseFloat(buttonPlayerTwoSixes.textContent);
         for (let i = 5; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 4; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -546,12 +546,12 @@ function threeOfAKindResult() {
         playerTwoScoreLowerSection.threeOfAKind = parseFloat(buttonPlayerTwoThreeOfAKind.textContent);
         for (let i = 6; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 5; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -564,12 +564,12 @@ function fourOfAKindResult() {
         playerTwoScoreLowerSection.fourOfAKind = parseFloat(buttonPlayerTwoFourOfAKind.textContent);
         for (let i = 7; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 6; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -582,12 +582,12 @@ function fullHouseResult() {
         playerTwoScoreLowerSection.fullHouse = parseFloat(buttonPlayerTwoFullHouse.textContent);
         for (let i = 8; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 7; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -600,12 +600,12 @@ function lowStraightResult() {
         playerTwoScoreLowerSection.lowStraight = parseFloat(buttonPlayerTwoLowStraight.textContent);
         for (let i = 9; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 8; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -618,12 +618,12 @@ function highStraightResult() {
         playerTwoScoreLowerSection.highStraight = parseFloat(buttonPlayerTwoHighStraight.textContent);
         for (let i = 10; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 9; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -636,12 +636,12 @@ function yahtzeeResult() {
         playerTwoScoreLowerSection.yahtzee = parseFloat(buttonPlayerTwoYahtzee.textContent);
         for (let i = 11; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 10; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();
@@ -654,12 +654,12 @@ function chanceResult() {
         playerTwoScoreLowerSection.chance = parseFloat(buttonPlayerTwoChance.textContent);
         for (let i = 12; i < playerTwoInput.length; i++) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         for (let i = 11; i >= 0; i--) {
             if (playerTwoInput[i].textContent.endsWith("]") === false) {
-            playerTwoInput[i].textContent = "";
+                playerTwoInput[i].textContent = "";
             }
         }
         grandResults();

@@ -14,9 +14,9 @@ import {
     selectResult,
 } from "./score.js";
 import {
-rollDiceFirstTime,
-rollDiceAgain,
-chooseDiceToKeep,
+    rollDiceFirstTime,
+    rollDiceAgain,
+    chooseDiceToKeep,
 } from "./dice_roll.js";
 
 const getDieOne = document.querySelector("button#die-one");
@@ -64,50 +64,50 @@ function turn() {
 
         /* possible upper section results player one */
         if (playerTurn) {
-        playerTurn = false;
-        const playerOneInput = document.querySelectorAll("button.player-one-input");
-        let upperSection = upperSectionTest(fiveDiceArray);
-        if (playerOneInput[0].textContent === "") {
-        playerOneInput[0].textContent = upperSection.aces;
-        }
-        if (playerOneInput[1].textContent === "") {
-        playerOneInput[1].textContent = upperSection.twos;
-        }
-        if (playerOneInput[2].textContent === "") {
-        playerOneInput[2].textContent = upperSection.threes;
-        }
-        if (playerOneInput[3].textContent === "") {
-        playerOneInput[3].textContent = upperSection.fours;
-        }
-        if (playerOneInput[4].textContent === "") {
-        playerOneInput[4].textContent = upperSection.fives;
-        }
-        if (playerOneInput[5].textContent === "") {
-        playerOneInput[5].textContent = upperSection.sixes;
-        }
-        /* possible lower section results player one */
-        let lowerSection = lowerSectionTest(fiveDiceArray, diceSummation);
-        if (playerOneInput[6].textContent === "") {
-        playerOneInput[6].textContent = lowerSection.threeOfAKind;
-        }
-        if (playerOneInput[7].textContent === "") {
-        playerOneInput[7].textContent = lowerSection.fourOfAKind;
-        }   
-        if (playerOneInput[8].textContent === "") {
-        playerOneInput[8].textContent = lowerSection.fullHouse;
-        }
-        if (playerOneInput[9].textContent === "") {
-        playerOneInput[9].textContent = lowerSection.lowStraight;
-        }
-        if (playerOneInput[10].textContent === "") {
-        playerOneInput[10].textContent = lowerSection.highStraight;
-        }
-        if (playerOneInput[11].textContent === "") {
-        playerOneInput[11].textContent = lowerSection.yahtzee;
-        }
-        if (playerOneInput[12].textContent === "") {
-        playerOneInput[12].textContent = lowerSection.chance;
-        }
+            playerTurn = false;
+            const playerOneInput = document.querySelectorAll("button.player-one-input");
+            let upperSection = upperSectionTest(fiveDiceArray);
+            if (playerOneInput[0].textContent === "") {
+                playerOneInput[0].textContent = upperSection.aces;
+            }
+            if (playerOneInput[1].textContent === "") {
+                playerOneInput[1].textContent = upperSection.twos;
+            }
+            if (playerOneInput[2].textContent === "") {
+                playerOneInput[2].textContent = upperSection.threes;
+            }
+            if (playerOneInput[3].textContent === "") {
+                playerOneInput[3].textContent = upperSection.fours;
+            }
+            if (playerOneInput[4].textContent === "") {
+                playerOneInput[4].textContent = upperSection.fives;
+            }
+            if (playerOneInput[5].textContent === "") {
+                playerOneInput[5].textContent = upperSection.sixes;
+            }
+            /* possible lower section results player one */
+            let lowerSection = lowerSectionTest(fiveDiceArray, diceSummation);
+            if (playerOneInput[6].textContent === "") {
+                playerOneInput[6].textContent = lowerSection.threeOfAKind;
+            }
+            if (playerOneInput[7].textContent === "") {
+                playerOneInput[7].textContent = lowerSection.fourOfAKind;
+            }
+            if (playerOneInput[8].textContent === "") {
+                playerOneInput[8].textContent = lowerSection.fullHouse;
+            }
+            if (playerOneInput[9].textContent === "") {
+                playerOneInput[9].textContent = lowerSection.lowStraight;
+            }
+            if (playerOneInput[10].textContent === "") {
+                playerOneInput[10].textContent = lowerSection.highStraight;
+            }
+            if (playerOneInput[11].textContent === "") {
+                playerOneInput[11].textContent = lowerSection.yahtzee;
+            }
+            if (playerOneInput[12].textContent === "") {
+                playerOneInput[12].textContent = lowerSection.chance;
+            }
         }
         /* possible upper section results player two */
         else if (playerTurn === false) {
@@ -115,47 +115,47 @@ function turn() {
             const playerTwoInput = document.querySelectorAll("button.player-two-input");
             let upperSection = upperSectionTest(fiveDiceArray);
             if (playerTwoInput[0].textContent === "") {
-            playerTwoInput[0].textContent = upperSection.aces;
+                playerTwoInput[0].textContent = upperSection.aces;
             }
             if (playerTwoInput[1].textContent === "") {
-            playerTwoInput[1].textContent = upperSection.twos;
+                playerTwoInput[1].textContent = upperSection.twos;
             }
             if (playerTwoInput[2].textContent === "") {
-            playerTwoInput[2].textContent = upperSection.threes;
+                playerTwoInput[2].textContent = upperSection.threes;
             }
             if (playerTwoInput[3].textContent === "") {
-            playerTwoInput[3].textContent = upperSection.fours;
+                playerTwoInput[3].textContent = upperSection.fours;
             }
             if (playerTwoInput[4].textContent === "") {
-            playerTwoInput[4].textContent = upperSection.fives;
+                playerTwoInput[4].textContent = upperSection.fives;
             }
             if (playerTwoInput[5].textContent === "") {
-            playerTwoInput[5].textContent = upperSection.sixes;
+                playerTwoInput[5].textContent = upperSection.sixes;
             }
             /* possible lower section results player two */
             let lowerSection = lowerSectionTest(fiveDiceArray, diceSummation);
             if (playerTwoInput[6].textContent === "") {
-            playerTwoInput[6].textContent = lowerSection.threeOfAKind;
+                playerTwoInput[6].textContent = lowerSection.threeOfAKind;
             }
             if (playerTwoInput[7].textContent === "") {
-            playerTwoInput[7].textContent = lowerSection.fourOfAKind;
-            }   
+                playerTwoInput[7].textContent = lowerSection.fourOfAKind;
+            }
             if (playerTwoInput[8].textContent === "") {
-            playerTwoInput[8].textContent = lowerSection.fullHouse;
+                playerTwoInput[8].textContent = lowerSection.fullHouse;
             }
             if (playerTwoInput[9].textContent === "") {
-            playerTwoInput[9].textContent = lowerSection.lowStraight;
+                playerTwoInput[9].textContent = lowerSection.lowStraight;
             }
             if (playerTwoInput[10].textContent === "") {
-            playerTwoInput[10].textContent = lowerSection.highStraight;
+                playerTwoInput[10].textContent = lowerSection.highStraight;
             }
             if (playerTwoInput[11].textContent === "") {
-            playerTwoInput[11].textContent = lowerSection.yahtzee;
+                playerTwoInput[11].textContent = lowerSection.yahtzee;
             }
             if (playerTwoInput[12].textContent === "") {
-            playerTwoInput[12].textContent = lowerSection.chance;
+                playerTwoInput[12].textContent = lowerSection.chance;
             }
-            }
+        }
         selectResultOn = true;
         selectResult(selectResultOn);
         mainButton.classList.add("turn-off-button");
@@ -167,13 +167,13 @@ let fiveDiceArray;
 let diceSummation = 0;
 /* summation of dice roll */
 function getSum() {
-fiveDiceArray = Object.values(fiveDice);
-function sumOfDice(sum) {
-    return sum = fiveDiceArray.reduce((previous, current) => previous + current);
-}
+    fiveDiceArray = Object.values(fiveDice);
+    function sumOfDice(sum) {
+        return sum = fiveDiceArray.reduce((previous, current) => previous + current);
+    }
 
-diceSummation = sumOfDice(diceSummation);
-return diceSummation;
+    diceSummation = sumOfDice(diceSummation);
+    return diceSummation;
 }
 
 export {

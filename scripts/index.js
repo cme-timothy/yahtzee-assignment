@@ -83,7 +83,7 @@ mainButton.addEventListener("click", () => {
         selectResult(onTest, playerOne, playerTwo);
         if (grandTotalPlayerOne.textContent > 0 && grandTotalPlayerTwo.textContent > 0) {
             if (grandTotalPlayerOne.textContent > grandTotalPlayerTwo.textContent) {
-            gameExplanation.textContent = `Player 1 Wins ${grandTotalPlayerOne.textContent} against ${grandTotalPlayerTwo.textContent}`;
+                gameExplanation.textContent = `Player 1 Wins ${grandTotalPlayerOne.textContent} against ${grandTotalPlayerTwo.textContent}`;
             } else if (grandTotalPlayerOne.textContent < grandTotalPlayerTwo.textContent) {
                 gameExplanation.textContent = `Player 2 Wins ${grandTotalPlayerTwo.textContent} against ${grandTotalPlayerOne.textContent}`;
             } else {
@@ -95,7 +95,7 @@ mainButton.addEventListener("click", () => {
         playerTwo = false;
         turnStart = true;
         nextPlayer = true;
-    /* player two switch */
+        /* player two switch */
     } else if (playerOne && !turnStart) {
         gameExplanation.textContent = "Player 2 Turn";
         let onTest;
@@ -104,14 +104,14 @@ mainButton.addEventListener("click", () => {
         playerTwo = true;
         turnStart = true;
         nextPlayer = true;
-    } 
+    }
     /* player one turn */
     if (playerOne && turnStart && !nextPlayer) {
         turnStart = turn();
-    } 
+    }
     /* player two turn */
     else if (playerTwo && turnStart && !nextPlayer) {
-        turnStart =  turn();
+        turnStart = turn();
     }
 });
 

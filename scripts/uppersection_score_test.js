@@ -15,12 +15,12 @@ function upperSectionTest(fiveDiceArray) {
     upperSection.fours = 0;
     upperSection.fives = 0;
     upperSection.sixes = 0;
-    
+
     for (let i = 1; i <= 6; i++) {
         scoreTest(i);
     }
     function scoreTest(number) {
-    let diceSameNumber = fiveDiceArray.filter(element => element === number);
+        let diceSameNumber = fiveDiceArray.filter(element => element === number);
         if (diceSameNumber[0] === 1) {
             sumOfAces = diceSameNumber.length * 1;
             upperSection.aces = sumOfAces;
