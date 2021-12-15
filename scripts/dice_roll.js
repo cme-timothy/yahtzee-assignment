@@ -62,6 +62,11 @@ let keepDieThreeTest = true;
 let keepDieFourTest = true;
 let keepDieFiveTest = true;
 function chooseDiceToKeep(offTest, turnTestsOff) {
+    keepDieOne = false;
+    keepDieTwo = false;
+    keepDieThree = false;
+    keepDieFour= false;
+    keepDieFive = false;
     if (!offTest){
         getDieOne.addEventListener("click", dieOneListener);
         getDieTwo.addEventListener("click", dieTwoListener);

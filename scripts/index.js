@@ -83,11 +83,11 @@ mainButton.addEventListener("click", () => {
         selectResult(onTest, playerOne, playerTwo);
         if (grandTotalPlayerOne.textContent > 0 && grandTotalPlayerTwo.textContent > 0) {
             if (grandTotalPlayerOne.textContent > grandTotalPlayerTwo.textContent) {
-            gameExplanation.textContent = `Player 1 Wins ${grandTotalPlayerOne.textContent} VS ${grandTotalPlayerTwo.textContent}`;
+            gameExplanation.textContent = `Player 1 Wins ${grandTotalPlayerOne.textContent} against ${grandTotalPlayerTwo.textContent}`;
             } else if (grandTotalPlayerOne.textContent < grandTotalPlayerTwo.textContent) {
-                gameExplanation.textContent = `Player 2 Wins ${grandTotalPlayerTwo.textContent} VS ${grandTotalPlayerOne.textContent}`;
+                gameExplanation.textContent = `Player 2 Wins ${grandTotalPlayerTwo.textContent} against ${grandTotalPlayerOne.textContent}`;
             } else {
-                gameExplanation.textContent = `Game Tie ${grandTotalPlayerOne.textContent} VS ${grandTotalPlayerTwo.textContent}`;
+                gameExplanation.textContent = `Game Tie ${grandTotalPlayerOne.textContent}:${grandTotalPlayerTwo.textContent}`;
             }
             mainButton.textContent = "Reset Game";
         }

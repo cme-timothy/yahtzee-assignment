@@ -40,18 +40,24 @@ function lowerSectionTest(fiveDiceArray, diceSummation) {
         lowerSection.fullHouse = 25;
     }
 
+    const testOne = fiveDiceArray.find(element => element === 1);
+    const testTwo = fiveDiceArray.find(element => element === 2);
+    const testThree = fiveDiceArray.find(element => element === 3);
+    const testFour = fiveDiceArray.find(element => element === 4);
+    const testFive = fiveDiceArray.find(element => element === 5);
+    const testSix = fiveDiceArray.find(element => element === 6);
     if (StraightTest === 5) {
-        const lowStraightTestOne = fiveDiceArray.find(element => element >= 5);
-        const lowStraightTestTwo = fiveDiceArray.find(element => element === 6 || element === 1);
-        const lowStraightTestThree = fiveDiceArray.find(element => element <= 2);
-            if(lowStraightTestOne !== 5 && lowStraightTestOne !== 6) {
+            if(testOne && testTwo && testThree && testFour) {
             lowerSection.lowStraight = 30;
-            } else if (lowStraightTestTwo !== 6 && lowStraightTestTwo !== 1) {
+            } else if (testTwo && testThree && testFour && testFive) {
             lowerSection.lowStraight = 30;
-            } else if (lowStraightTestThree !== 2 && lowStraightTestThree !== 1) {
+            } else if (testThree && testFour && testFive && testSix) {
             lowerSection.lowStraight = 30;
             }
-    } else if (StraightTest === 6) {
+    } else if (StraightTest === 6 && testSix && testOne === undefined) {
+        lowerSection.lowStraight = 30;
+        lowerSection.highStraight = 40;
+    } else if (StraightTest === 6 && testOne && testSix === undefined) {
         lowerSection.lowStraight = 30;
         lowerSection.highStraight = 40;
     }
