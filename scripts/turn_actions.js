@@ -12,7 +12,7 @@ import {
 } from "./lowersection_score_test.js";
 import {
     selectResult,
-} from "./select_score.js";
+} from "./score.js";
 import {
 rollDiceFirstTime,
 rollDiceAgain,
@@ -24,6 +24,7 @@ const getDieTwo = document.querySelector("button#die-two");
 const getDieThree = document.querySelector("button#die-three");
 const getDieFour = document.querySelector("button#die-four");
 const getDieFive = document.querySelector("button#die-five");
+const gameExplanation = document.querySelector(".game-explanation");
 let keepDieChoiceOff = true;
 let selectResultOn = true;
 let roll = 0;
@@ -33,6 +34,7 @@ function turn() {
         rollDiceFirstTime();
         keepDieChoiceOff = false;
         chooseDiceToKeep(keepDieChoiceOff, false);
+        gameExplanation.textContent = "Press the dice your want to keep and press again if your want to revert back."
         mainButton.textContent = "Roll Dice Again";
         selectResultOn = false;
         selectResult(selectResultOn);
@@ -54,6 +56,7 @@ function turn() {
         getDieFour.classList.remove("dice-keep");
         getDieFive.classList.remove("dice-keep");
         mainButton.textContent = "Next Player";
+        gameExplanation.textContent = "Select a score in one of the 13 available player boxes to continue."
         /* sum of last roll */
         getSum();
         console.log(fiveDice);

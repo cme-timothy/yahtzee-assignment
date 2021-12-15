@@ -23,6 +23,64 @@ const buttonPlayerOneYahtzee = document.querySelector("#yahtzee-player-one-input
 const buttonPlayerOneChance = document.querySelector("#chance-player-one-input");
 
 function selectResult(onTest) {
+        /* scoring tests upper section player one */
+        let upperSectionScoreArray = [];
+        let valuesUpperSection = Object.values(playerOneScoreUpperSection);
+        for (let i = 0; i < valuesUpperSection.length; i++) {
+            if (valuesUpperSection[i] !== -1) {
+            upperSectionScoreArray.push(valuesUpperSection[i]);
+            }
+        }
+        const buttonPlayerOneTotalUpperSection = document.querySelector("#total-of-upper-section-player-one-input");
+        const buttonPlayerOneTotal = document.querySelector("#total-player-one-input");
+        const buttonPlayerOneBonus = document.querySelector("#bonus-player-one-input");
+        if (upperSectionScoreArray.length === 6) {
+            const sumHigherSection = upperSectionScoreArray.reduce(function(a, b) { return a + b });
+            buttonPlayerOneTotal.textContent = sumHigherSection;
+            if (sumHigherSection >= 63) {
+                buttonPlayerOneBonus.textContent = 35;
+                buttonPlayerOneTotalUpperSection.textContent = sumHigherSection + 35;
+            } else {
+                buttonPlayerOneBonus.textContent = 0;
+                buttonPlayerOneTotalUpperSection.textContent = sumHigherSection;
+            }
+    
+        }
+        /* scoring tests lower section player one */
+        let lowerSectionScoreArray = [];
+        let valuesLowerSection = Object.values(playerOneScoreLowerSection);
+        for (let i = 0; i < valuesLowerSection.length; i++) {
+            if (valuesLowerSection[i] !== -1) {
+            lowerSectionScoreArray.push(valuesLowerSection[i]);
+            }
+        }
+        const buttonPlayerOneTotalLowerSection = document.querySelector("#total-of-lower-section-player-one-input");
+        if (lowerSectionScoreArray.length === 7) {
+            const sumlowerSection = lowerSectionScoreArray.reduce(function(a, b) { return a + b });
+            buttonPlayerOneTotalLowerSection.textContent = sumlowerSection;
+        }
+        /* grand score test player one */
+        const grandTotalPlayerOne = document.querySelector("#grand-total-player-one-input");
+        if (parseFloat(buttonPlayerOneTotalLowerSection.textContent) > 0 && parseFloat(buttonPlayerOneTotalUpperSection.textContent) > 0) {
+            grandTotalPlayerOne.textContent = parseFloat(buttonPlayerOneTotalLowerSection.textContent) + parseFloat(buttonPlayerOneTotalUpperSection.textContent);
+
+            /* reset score */
+            playerOneScoreUpperSection.aces = -1;
+            playerOneScoreUpperSection.twos = -1;
+            playerOneScoreUpperSection.threes = -1;
+            playerOneScoreUpperSection.fours = -1;
+            playerOneScoreUpperSection.fives = -1;
+            playerOneScoreUpperSection.sixes = -1;
+
+            playerOneScoreLowerSection.threeOfAKind = -1;
+            playerOneScoreLowerSection.fourOfAKind = -1;
+            playerOneScoreLowerSection.fullHouse = -1;
+            playerOneScoreLowerSection.lowStraight = -1;
+            playerOneScoreLowerSection.highStraight = -1;
+            playerOneScoreLowerSection.yahtzee = -1;
+            playerOneScoreLowerSection.chance = -1;
+        }
+        
     if (onTest){
         buttonPlayerOneAces.addEventListener("click", acesResult);
         buttonPlayerOneTwos.addEventListener("click", twosResult);
@@ -38,63 +96,21 @@ function selectResult(onTest) {
         buttonPlayerOneHighStraight.addEventListener("click", highStraightResult);
         buttonPlayerOneYahtzee.addEventListener("click", yahtzeeResult);
         buttonPlayerOneChance.addEventListener("click", chanceResult);
-
-    /* scoring tests upper section */
-    let upperSectionScoreArray = [];
-    let valuesUpperSection = Object.values(playerOneScoreUpperSection);
-    for (let i = 0; i < valuesUpperSection.length; i++) {
-        if (valuesUpperSection[i] !== -1) {
-        upperSectionScoreArray.push(valuesUpperSection[i]);
-        }
-    }
-    const buttonPlayerOneTotalUpperSection = document.querySelector("#total-of-upper-section-player-one-input");
-    const buttonPlayerOneTotal = document.querySelector("#total-player-one-input");
-    const buttonPlayerOneBonus = document.querySelector("#bonus-player-one-input");
-    if (upperSectionScoreArray.length === 6) {
-        const sumHigherSection = upperSectionScoreArray.reduce(function(a, b) { return a + b });
-        buttonPlayerOneTotal.textContent = sumHigherSection;
-        if (sumHigherSection >= 63) {
-            buttonPlayerOneBonus.textContent = 35;
-            buttonPlayerOneTotalUpperSection.textContent = sumHigherSection + 35;
-        } else {
-            buttonPlayerOneBonus.textContent = 0;
-            buttonPlayerOneTotalUpperSection.textContent = sumHigherSection;
-        }
-
-    }
-    /* scoring tests lower section */
-    let lowerSectionScoreArray = [];
-    let valuesLowerSection = Object.values(playerOneScoreLowerSection);
-    for (let i = 0; i < valuesLowerSection.length; i++) {
-        if (valuesLowerSection[i] !== -1) {
-        lowerSectionScoreArray.push(valuesLowerSection[i]);
-        }
-    }
-    const buttonPlayerOneTotalLowerSection = document.querySelector("#total-of-lower-section-player-one-input");
-    if (lowerSectionScoreArray.length === 7) {
-        const sumlowerSection = lowerSectionScoreArray.reduce(function(a, b) { return a + b });
-        buttonPlayerOneTotalLowerSection.textContent = sumlowerSection;
-    }
-    const grandTotalPlayerOne = document.querySelector("#grand-total-player-one-input");
-    if (parseFloat(buttonPlayerOneTotalLowerSection.textContent) > 0 && parseFloat(buttonPlayerOneTotalUpperSection.textContent) > 0) {
-        grandTotalPlayerOne.textContent = parseFloat(buttonPlayerOneTotalLowerSection.textContent) + parseFloat(buttonPlayerOneTotalUpperSection.textContent);
-    }
-
     } else if (!onTest) {
-    buttonPlayerOneAces.removeEventListener("click", acesResult);
-    buttonPlayerOneTwos.removeEventListener("click", twosResult);
-    buttonPlayerOneThrees.removeEventListener("click", threesResult);
-    buttonPlayerOneFours.removeEventListener("click", foursResult);
-    buttonPlayerOneFives.removeEventListener("click", fivesResult);
-    buttonPlayerOneSixes.removeEventListener("click", sixesResult);
+        buttonPlayerOneAces.removeEventListener("click", acesResult);
+        buttonPlayerOneTwos.removeEventListener("click", twosResult);
+        buttonPlayerOneThrees.removeEventListener("click", threesResult);
+        buttonPlayerOneFours.removeEventListener("click", foursResult);
+        buttonPlayerOneFives.removeEventListener("click", fivesResult);
+        buttonPlayerOneSixes.removeEventListener("click", sixesResult);
 
-    buttonPlayerOneThreeOfAKind.removeEventListener("click", threeOfAKindResult);
-    buttonPlayerOneFourOfAKind.removeEventListener("click", fourOfAKindResult);
-    buttonPlayerOneFullHouse.removeEventListener("click", fullHouseResult);
-    buttonPlayerOneLowStraight.removeEventListener("click", lowStraightResult);
-    buttonPlayerOneHighStraight.removeEventListener("click", highStraightResult);
-    buttonPlayerOneYahtzee.removeEventListener("click", yahtzeeResult);
-    buttonPlayerOneChance.removeEventListener("click", chanceResult);
+        buttonPlayerOneThreeOfAKind.removeEventListener("click", threeOfAKindResult);
+        buttonPlayerOneFourOfAKind.removeEventListener("click", fourOfAKindResult);
+        buttonPlayerOneFullHouse.removeEventListener("click", fullHouseResult);
+        buttonPlayerOneLowStraight.removeEventListener("click", lowStraightResult);
+        buttonPlayerOneHighStraight.removeEventListener("click", highStraightResult);
+        buttonPlayerOneYahtzee.removeEventListener("click", yahtzeeResult);
+        buttonPlayerOneChance.removeEventListener("click", chanceResult);
     }
 }
 

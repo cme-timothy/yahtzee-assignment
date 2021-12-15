@@ -11,40 +11,56 @@
     <script type="module" src="scripts/dice_roll.js"></script>
     <script type="module" src="scripts/uppersection_score_test.js"></script>
     <script type="module" src="scripts/lowersection_score_test.js"></script>
-    <script type="module" src="scripts/select_score.js"></script>
+    <script type="module" src="scripts/score.js"></script>
 </head>
 <body>
     <main>
-        <h1>Yahtzee</h1>
+        <div class="info-section">
+            <h1>Yahtzee</h1><span class="game-explanation">Press Start Game to Begin</span>
+        </div>
         <section class="upper-section">
             <h2>Upper Section</h2>
             <h2 class="player">P1</h2>
             <h2 class="player">P2</h2>
-            <h3>Aces</h3>
+            <div class="rows-beginning">
+                <h3>Aces</h3><span class="dice-rules">Only adds 1</span>
+            </div>
             <button id="aces-player-one-input" class="aces player-one-input"></button>
             <button class="aces player-two-input"></button>
-            <h3>Twos</h3>
+            <div class="rows-beginning">
+                <h3>Twos</h3><span class="dice-rules">Only adds 2</span>
+            </div>
             <button id="twos-player-one-input" class="twos player-one-input"></button>
             <button class="twos player-two-input"></button>
-            <h3>Threes</h3>
+            <div class="rows-beginning">
+                <h3>Threes</h3><span class="dice-rules">Only adds 3</span>
+            </div>
             <button id="threes-player-one-input" class="threes player-one-input"></button>
             <button class="threes player-two-input"></button>
-            <h3>Fours</h3>
+            <div class="rows-beginning">
+                <h3>Fours</h3><span class="dice-rules">Only adds 4</span>
+            </div>
             <button id="fours-player-one-input" class="fours player-one-input"></button>
             <button class="fours player-two-input"></button>
-            <h3>Fives</h3>
+            <div class="rows-beginning">
+                <h3>Fives</h3><span class="dice-rules">Only adds 5</span>
+            </div>
             <button id="fives-player-one-input" class="fives player-one-input"></button>
             <button class="fives player-two-input"></button>
-            <h3>Sixes</h3>
+            <div class="rows-beginning">
+                <h3>Sixes</h3><span class="dice-rules">Only adds 6</span>
+            </div>
             <button id="sixes-player-one-input" class="sixes player-one-input"></button>
             <button class="sixes player-two-input"></button>
-            <h3>Total</h3>
+            <h3 class="no-rules-explanation">Total</h3>
             <span id="total-player-one-input" class="total"></span>
             <span class="total"></span>
-            <h3>Bonus</h3>
+            <div class="rows-beginning">
+                <h3>Bonus</h3><span class="dice-rules">63 or more scores 35</span>
+            </div>
             <span id="bonus-player-one-input" class="bonus"></span>
             <span class="bonus"></span>
-            <h3>Total of Upper Section</h3>
+            <h3 class="no-rules-explanation">Total of Upper Section</h3>
             <span id="total-of-upper-section-player-one-input" class="total-of-upper-section"></span>
             <span class="total-of-upper-section"></span>
         </section>
@@ -52,28 +68,42 @@
             <h2>Lower Section</h2>
             <h2 class="player">P1</h2>
             <h2 class="player">P2</h2>
-            <h3>Three of a Kind</h3>
+            <div class="rows-beginning">
+                <h3>Three of a Kind</h3><span class="dice-rules">Total of all dice</span>
+            </div>
             <button id="three-of-a-Kind-player-one-input" class="three-of-a-Kind player-one-input"></button>
             <button class="three-of-a-Kind player-two-input"></button>
-            <h3>Four of a Kind</h3>
+            <div class="rows-beginning">
+                <h3>Four of a Kind</h3><span class="dice-rules">Total of all dice</span>
+            </div>
             <button id="four-of-a-Kind-player-one-input" class="four-of-a-kind player-one-input"></button>
             <button class="four-of-a-kind player-two-input"></button>
-            <h3>Full House</h3>
+            <div class="rows-beginning">
+                <h3>Full House</h3><span class="dice-rules">25</span>
+            </div>
             <button id="full-house-player-one-input" class="full-house player-one-input"></button>
             <button class="full-house player-two-input"></button>
-            <h3>Low Straight</h3>
+            <div class="rows-beginning">
+                <h3>Low Straight</h3><span class="dice-rules">30</span>
+            </div>
             <button id="low-straight-player-one-input" class="low-straight player-one-input"></button>
             <button class="low-straight player-two-input"></button>
-            <h3>High Straight</h3>
+            <div class="rows-beginning">
+                <h3>High Straight</h3><span class="dice-rules">40</span>
+            </div>
             <button id="high-straight-player-one-input" class="high-straight player-one-input"></button>
             <button class="high-straight player-two-input"></button>
-            <h3>Yahtzee</h3>
+            <div class="rows-beginning">
+                <h3>Yahtzee</h3><span class="dice-rules">50</span>
+            </div>
             <button id="yahtzee-player-one-input" class="yahtzee player-one-input"></button>
             <button class="yahtzee player-two-input"></button>
-            <h3>Chance</h3>
+            <div class="rows-beginning">
+                <h3>Chance</h3><span class="dice-rules">Total of all dice</span>
+            </div>
             <button id="chance-player-one-input" class="chance player-one-input"></button>
             <button class="chance player-two-input"></button>
-            <h3>Total of Lower Section</h3>
+            <h3 class="no-rules-explanation">Total of Lower Section</h3>
             <span id="total-of-lower-section-player-one-input" class="total-of-lower-section"></span>
             <span class="total-of-lower-section"></span>
         </section>
@@ -83,11 +113,11 @@
             <span class="grand-total"></span>
         </div>
         <div class="all-dice">
-            <button class="dice" id="die-one">6</button>
-            <button class="dice" id="die-two">6</button>
-            <button class="dice" id="die-three">6</button>
-            <button class="dice" id="die-four">6</button>
-            <button class="dice" id="die-five">6</button>
+            <button class="dice" id="die-one">1</button>
+            <button class="dice" id="die-two">1</button>
+            <button class="dice" id="die-three">1</button>
+            <button class="dice" id="die-four">1</button>
+            <button class="dice" id="die-five">1</button>
         </div>
         <div class="dice-roll" id="start-game">
             <button class="main-button">Start Game</button>

@@ -9,6 +9,13 @@ let sumOfFours = 0;
 let sumOfFives = 0;
 let sumOfSixes = 0;
 function upperSectionTest(fiveDiceArray) {
+    upperSection.aces = 0;
+    upperSection.twos = 0;
+    upperSection.threes = 0;
+    upperSection.fours = 0;
+    upperSection.fives = 0;
+    upperSection.sixes = 0;
+    
     for (let i = 1; i <= 6; i++) {
         scoreTest(i);
     }

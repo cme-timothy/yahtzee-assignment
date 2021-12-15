@@ -3,6 +3,14 @@ import {
 } from "./data.js";
 
 function lowerSectionTest(fiveDiceArray, diceSummation) {
+    lowerSection.threeOfAKind = 0;
+    lowerSection.fourOfAKind = 0;
+    lowerSection.fullHouse = 0;
+    lowerSection.lowStraight = 0;
+    lowerSection.highStraight = 0;
+    lowerSection.yahtzee = 0;
+    lowerSection.chance = 0;
+
     let fullHouseThreeOfAKindTest = false;
     let fullHouseTwoOfAKindTest = false;
     let StraightTest= 0;
